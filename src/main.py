@@ -18,7 +18,6 @@ def generate_random_string(length):
     possible_chars = string.ascii_letters + string.digits  # A-Z, a-z, 0-9
     return ''.join(secrets.choice(possible_chars) for _ in range(length))
 
-
 # Step 1. Generate the code verifier
 code_verifier = generate_random_string(64)
 
@@ -42,38 +41,12 @@ params = {
 }
 
 # Generate the query string
-auth_url_with_params = auth_url + "?" + urllib.parse.urlencode(params)
+auth_url += "?" + urllib.parse.urlencode(params)
 
-app = Flask(__name__)
-
-# Route to redirect user to Spotify's authorization page
-
-
-@app.route('/')
-def redirect_to_spotify():
-    return redirect(auth_url_with_params)
-
-
-@app.route('/callback')
-def callback():
-    # Extract 'code' parameter from the query string
-    code = request.args.get('code')
-
-    if code:
-        # Call the function to exchange the code for an access token
-        access_token = get_access_token(
-            client_id, code, redirect_uri, code_verifier)
-        if access_token is None:
-            return "Error: Unable to retrieve access token", 500
-
-        return get_user_top_tracks(access_token)
-    else:
-        return "Error: No code found in the query parameters", 400
-
-# Step X. User has accepted authorisation request, now to exchange the auth code for an access token
-
-
-def get_access_token(client_id, auth_code, redirect_uri, code_verifier):
+# Using authorisation code to then obtain an access token for intrusive API calls (user-specific)
+def generate_authorisation_token(auth_code):
+    # Step X. User has accepted authorisation request, now to exchange the auth code for an access token
+    # Requesting an Access Token
     url = "https://accounts.spotify.com/api/token"
     payload = {
         'client_id': client_id,
@@ -97,32 +70,112 @@ def get_access_token(client_id, auth_code, redirect_uri, code_verifier):
         print("Error:", response.status_code, response.text)
         return None
 
+# Credentials used to obtain access for non-intrusive API calls (i.e. calls not related to user-specific data)
+def generate_client_credentials():
+    auth_value = base64.b64encode(f'{client_id}:{client_secret}'.encode('utf-8')).decode('utf-8')
+
+    url = 'https://accounts.spotify.com/api/token'
+    headers = {
+        "Authorization": f"Basic {auth_value}",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    data = {
+        'grant_type': 'client_credentials'
+    }
+
+    # Make the POST request
+    response = requests.post(url, headers=headers, data=data)
+
+    if response.status_code == 200:
+        token_data = response.json()
+        return token_data.get('access_token')
+    else:
+        print(f"Error: {response.status_code} - {response.text}")
+        return None
+
+app = Flask(__name__)
+
+# Route to redirect user to Spotify's authorisation page
+
+
+@app.route('/')
+def redirect_to_spotify():
+    return redirect(auth_url)
+    #return recommendations_from_mood(generate_client_credentials())
+
+
+@app.route('/callback')
+def callback():
+    print(app.url_map)
+
+    # Extract 'code' parameter from the query string
+    auth_code = request.args.get('code')
+    if not auth_code:
+        return "Error: No code found in the query parameters", 400
+
+    #return get_user_top_tracks(generate_authorisation_token(auth_code))
+    return recommendations_from_mood(generate_client_credentials())
+
+
 
 def get_user_top_tracks(access_token):
 
-    # Spotify endpoint for fetching the user's top tracks
     url = "https://api.spotify.com/v1/me/top/tracks"
-
-    # Set up the parameters for the request
     params = {
-        'time_range': 'short_term',  # Time range: short_term (last 4 weeks)
-        'limit': 25  # Limit the results to 25 tracks
+        'time_range': 'short_term',
+        'limit': 25 # TODO: Base this value on car journey length
     }
 
-    # Make the GET request to Spotify's API, passing the authorization token in the header
     response = requests.get(url, headers={
         'Authorization': f'Bearer {access_token}'
     }, params=params)
 
-    # Check if the response was successful
+
     if response.status_code == 200:
-        # Parse and return the JSON response
         top_tracks_data = response.json()
-        return top_tracks_data['items']  # Return the list of tracks
+        return top_tracks_data['items']
     else:
         print("Error fetching top tracks:",
               response.status_code, response.text)
         return None
+
+def recommendations_from_mood(access_token):
+    url = "https://api.spotify.com/v1/recommendations"
+
+    # Define mood-related parameters
+    params = {
+        "limit": 10,
+        "seed_genres": "pop",
+        "target_valence": 0.8,
+        "target_energy": 0.7
+    }
+
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+
+    # TODO: remove temp code once access issue is resolved
+    print(f"Request URL: {url}")
+    print(f"Request Headers: {headers}")
+    print(f"Request Params: {params}")
+    print(f"Spotify Response Status Code: {response.status_code}")
+    print(f"Spotify Response Content: {response.text}")
+
+    # Make request
+    response = requests.get(url, headers=headers, params=params)
+
+    if response.status_code == 200:
+        data = response.json()
+        track_names = [f"{track['name']} by {track['artists'][0]['name']}" for track in data["tracks"]]
+        
+        return f"Recommended tracks:\n" + "\n".join(track_names)
+    else:
+        return "Error: Unable to fetch recommendations from Spotify", 500
+
+@app.route('/test')
+def test_route():
+    return "Test route works!"
 
 
 if __name__ == '__main__':

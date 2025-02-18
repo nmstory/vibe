@@ -23,9 +23,9 @@ Whilst the aim of this project is to accurately curate a Spotify playlist to set
 # Prequisites
 
 Developed using Python 3.13.2
-python-dotenv??
-requests? need to try on a machine without these two
-flask???
+python-dotenv (version: )
+requests (version: )
+flask (version: )
 
 # Authenticatio Flow
 
