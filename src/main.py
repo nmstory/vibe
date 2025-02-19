@@ -18,6 +18,7 @@ def generate_random_string(length):
     possible_chars = string.ascii_letters + string.digits  # A-Z, a-z, 0-9
     return ''.join(secrets.choice(possible_chars) for _ in range(length))
 
+
 # Step 1. Generate the code verifier
 code_verifier = generate_random_string(64)
 
@@ -44,6 +45,8 @@ params = {
 auth_url += "?" + urllib.parse.urlencode(params)
 
 # Using authorisation code to then obtain an access token for intrusive API calls (user-specific)
+
+
 def generate_authorisation_token(auth_code):
     # Step X. User has accepted authorisation request, now to exchange the auth code for an access token
     # Requesting an Access Token
@@ -71,8 +74,11 @@ def generate_authorisation_token(auth_code):
         return None
 
 # Credentials used to obtain access for non-intrusive API calls (i.e. calls not related to user-specific data)
+
+
 def generate_client_credentials():
-    auth_value = base64.b64encode(f'{client_id}:{client_secret}'.encode('utf-8')).decode('utf-8')
+    auth_value = base64.b64encode(
+        f'{client_id}:{client_secret}'.encode('utf-8')).decode('utf-8')
 
     url = 'https://accounts.spotify.com/api/token'
     headers = {
@@ -93,6 +99,7 @@ def generate_client_credentials():
         print(f"Error: {response.status_code} - {response.text}")
         return None
 
+
 app = Flask(__name__)
 
 # Route to redirect user to Spotify's authorisation page
@@ -101,7 +108,7 @@ app = Flask(__name__)
 @app.route('/')
 def redirect_to_spotify():
     return redirect(auth_url)
-    #return recommendations_from_mood(generate_client_credentials())
+    # return recommendations_from_mood(generate_client_credentials())
 
 
 @app.route('/callback')
@@ -113,9 +120,8 @@ def callback():
     if not auth_code:
         return "Error: No code found in the query parameters", 400
 
-    #return get_user_top_tracks(generate_authorisation_token(auth_code))
+    # return get_user_top_tracks(generate_authorisation_token(auth_code))
     return recommendations_from_mood(generate_client_credentials())
-
 
 
 def get_user_top_tracks(access_token):
@@ -130,7 +136,6 @@ def get_user_top_tracks(access_token):
         'Authorization': f'Bearer {access_token}'
     }, params=params)
 
-
     if response.status_code == 200:
         top_tracks_data = response.json()
         return top_tracks_data['items']
@@ -139,39 +144,38 @@ def get_user_top_tracks(access_token):
               response.status_code, response.text)
         return None
 
+
 def recommendations_from_mood(access_token):
-    url = "https://api.spotify.com/v1/recommendations"
+    import requests
 
-    # Define mood-related parameters
+
+def get_similar_tracks(artist, track, api_key, limit=5):
+    url = "https://ws.audioscrobbler.com/2.0/"
+
     params = {
-        "limit": 10,
-        "seed_genres": "pop",
-        "target_valence": 0.8,
-        "target_energy": 0.7
+        'method': 'track.getsimilar',
+        'artist': artist,
+        'track': track,
+        'api_key': api_key,
+        'limit': 5,
+        'format': 'json'
     }
 
-    headers = {
-        "Authorization": f"Bearer {access_token}",
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
+    response = requests.get(url, params=params)
 
-    # TODO: remove temp code once access issue is resolved
-    print(f"Request URL: {url}")
-    print(f"Request Headers: {headers}")
-    print(f"Request Params: {params}")
-    print(f"Spotify Response Status Code: {response.status_code}")
-    print(f"Spotify Response Content: {response.text}")
-
-    # Make request
-    response = requests.get(url, headers=headers, params=params)
-
+    # Check if the request was successful
     if response.status_code == 200:
         data = response.json()
-        track_names = [f"{track['name']} by {track['artists'][0]['name']}" for track in data["tracks"]]
-        
-        return f"Recommended tracks:\n" + "\n".join(track_names)
+        if 'similartracks' in data:
+            similar_tracks = data['similartracks']['track']
+            return similar_tracks
+        else:
+            print("No similar tracks found or error in response data.")
+            return None
     else:
-        return "Error: Unable to fetch recommendations from Spotify", 500
+        print(f"Error {response.status_code}: {response.text}")
+        return None
+
 
 @app.route('/test')
 def test_route():
