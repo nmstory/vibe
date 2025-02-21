@@ -26,7 +26,11 @@ Developed using Python 3.13.2
 python-dotenv (version: )
 requests (version: )
 flask (version: )
+googlemaps (version: 4.10.0)
 
+'''
+pip install python-dotenv requests flask googlemaps
+'''
 # Authenticatio Flow
 
 To increase security within the desired environment (eventually potentially a web app), the authentication flow uses an authorisation code with PKCE - in the event that the runtime environment may provide an opportunity for the authorisation code to be intercepted.
