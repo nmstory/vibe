@@ -19,3 +19,25 @@ Welcome to Project Vibe: your go-to Spotify playlist generator before heading ou
 ## Inspiration for the Name
 
 Whilst the aim of this project is to accurately curate a Spotify playlist to set the perfect _vibe_ for your ride, I'm also currently learning Portuguese, and this is also an acronym for the slightly more Brazilian phrase **_v_**_amos_ **_i_**_ntensificar o_ **_b_**_om_ **_e_**_squema_, which roughly translate as slang to English as _let's get this vibe right_.
+
+# Prequisites
+
+Developed using Python 3.13.2
+python-dotenv (version: )
+requests (version: )
+flask (version: )
+googlemaps (version: 4.10.0)
+
+'''
+pip install python-dotenv requests flask googlemaps
+'''
+# Authenticatio Flow
+
+To increase security within the desired environment (eventually potentially a web app), the authentication flow uses an authorisation code with PKCE - in the event that the runtime environment may provide an opportunity for the authorisation code to be intercepted.
+
+Follows this flow:
+
+1. Code Challenge generation from a Code Verifier
+2. Request authorisation from the user and retrieve the authorisation code
+3. Request an access token from the authorisation code
+4. Use the access token to make API calls

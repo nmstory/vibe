@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Vibe: Spotify Playlist Generator</h1>
+    <form id="timeForm">
+        <label for="origin">Starting Location:</label>
+        <input type="text" id="origin" name="origin" required>
+        <label for="destination">Destination Location:</label>
+        <input type="text" id="destination" name="destination" required>
+        <label for="mood">How would you describe your mood right now?</label>
+        <input type="text" id="mood" name="mood" required>
+        <button type="submit">Generate me a Playlist!</button>
+    </form>
+
+    <div id="response" class="response"></div>
+</div>
+
+<script>
+    document.getElementById('timeForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const origin = document.getElementById('origin').value;
+        const destination = document.getElementById('destination').value;
+        const mood = document.getElementById('mood').value;
+
+        fetch('/generate_playlist', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `origin=${origin}&destination=${destination}&mood=${mood}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            const resultDiv = document.getElementById('response');
+            if (typeof data === 'string') {
+                resultDiv.innerHTML = `<p>It's ready! Take a <a href="${data}" target="_blank">listen here</a>.</p>`;
+                resultDiv.classList.remove('error');
+            } else {
+                resultDiv.innerHTML = `<p class="error">Failed to generate playlist. Please try again.</p>`;
+                resultDiv.classList.add('error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
