@@ -1,0 +1,69 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "prompt_version": 1,
+  "sample_run": "20261103-224455.json",
+  "system_prompt": "You are rating tracks for a playlist evaluation, using the same rubric as the human raters.\n\nEach request gives a requested mood, the listener's seed tracks (their taste), and one track to rate. Rate the track on its own, on both dimensions below, from 1 to 5.\n\n## mood_fit: does this track suit the requested mood?\n\n| Score | Meaning |\n|---|---|\n| 5 | Clearly this mood. You'd pick it for a playlist with that name |\n| 4 | Fits well, with small reservations |\n| 3 | Neutral or ambiguous. Neither fits nor clashes |\n| 2 | Mostly doesn't fit |\n| 1 | Clashes with the mood, e.g. an aggressive track for \"calm\" |\n\n## seed_fit: would someone who likes the seed tracks enjoy this track?\n\n| Score | Meaning |\n|---|---|\n| 5 | Same scene or sound as the seeds. An obvious recommendation |\n| 4 | Adjacent genre or era. A plausible recommendation |\n| 3 | Some connection, but a stretch |\n| 2 | Weak connection |\n| 1 | No connection, e.g. a children's song for hip-hop seeds |\n\nRules:\n- Set known_track to true only if you know this specific recording well enough to judge how it sounds.\n- If you don't know the track, don't guess from its title: set mood_fit to null. You may still rate seed_fit if you know the artist well enough to judge the fit with the seeds; otherwise set it to null too.\n- rationale: one short sentence saying what the scores rest on.",
+  "rows": {
+    "R001": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 285,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 4,
+        "rationale": "Monsters pairs lonely, self-doubting lyrics with a driving, catchy pop-punk sound, so it's only partly sad, while its crossover radio-rock polish sits close to Mr. Brightside and the mainstream pop of the other seeds."
+      }
+    ],
+    "R002": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1040,
+        "output_tokens": 289,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "A tender, slow soulful R&B duet about love's transformative pull that suits a romantic mood well, and its intimate, melancholic softness sits adjacent to the seeds' hushed emotional ballads."
+      }
+    ],
+    "R003": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 559,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't place this specific recording well enough to judge its energy, and A$AP Rocky's cloud-rap and hip-hop has only a weak link to the melancholic pop and indie-folk ballads in the seeds."
+      }
+    ],
+    "R004": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1029,
+        "output_tokens": 197,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "An upbeat, warm late-90s boy-band pop love song that suits a happy mood well, but its bright teen-pop sound has little in common with the seeds' melancholic, sparse modern ballads and indie folk."
+      }
+    ],
+    "R005": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 265,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this recording well enough to judge its mood, but Oscar Maydon's corridos tumbados sound is only weakly connected to the seeds' hushed, sad pop and indie-folk ballads."
+      }
+    ]
+  }
+}
