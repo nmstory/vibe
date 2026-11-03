@@ -170,6 +170,11 @@ def recommendations_from_mood(mood):
     url = f"http://ws.audioscrobbler.com/2.0/?method=tag.getTopTracks&tag={mood}&api_key={last_fm_api_key}&format=json&limit=10"
 
     response = requests.get(url)
+
+    if response.status_code != 200:
+        print(f"Error {response.status_code}: {response.text}")
+        return []
+
     data = response.json()
 
     tracks_with_uri = []
@@ -183,7 +188,7 @@ def recommendations_from_mood(mood):
         return tracks_with_uri
     else:
         print(f"No tracks found for mood: {mood}")
-        return None
+        return []
 
 def get_similar_tracks(track, artist, limit=5):
     url = "https://ws.audioscrobbler.com/2.0/"
@@ -214,10 +219,10 @@ def get_similar_tracks(track, artist, limit=5):
             return uris_of_similar_tracks
         else:
             print("No similar tracks found or error in response data.")
-            return None
+            return []
     else:
         print(f"Error {response.status_code}: {response.text}")
-        return None
+        return []
 
 
 def create_playlist(destination):
