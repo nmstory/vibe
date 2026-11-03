@@ -8,13 +8,12 @@ import os
 import base64
 import requests
 import googlemaps
+from pipeline import generate_playlist_tracks
 
 load_dotenv()
 
 spotify_client_id = os.getenv("SPOTIFY_CLIENT_ID")
 spotify_client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
-last_fm_api_key = os.getenv("LAST_FM_API_KEY")
-last_fm_secret = os.getenv("LAST_FM_SECRET")
 google_maps_api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
 # init google maps API
@@ -74,30 +73,6 @@ def generate_authorisation_token():
         print("Error:", response.status_code, response.text)
         return None
 
-# Credentials used to obtain access for non-intrusive API calls (i.e. calls not related to user-specific data)
-def generate_client_credentials():
-    auth_value = base64.b64encode(
-        f'{spotify_client_id}:{spotify_client_secret}'.encode('utf-8')).decode('utf-8')
-
-    url = 'https://accounts.spotify.com/api/token'
-    headers = {
-        "Authorization": f"Basic {auth_value}",
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
-    data = {
-        'grant_type': 'client_credentials'
-    }
-
-    response = requests.post(url, headers=headers, data=data)
-
-    # Check response
-    if response.status_code == 200:
-        token_data = response.json()
-        return token_data.get('access_token')
-    else:
-        print(f"Error: {response.status_code} - {response.text}")
-        return None
-
 # Calculates travel time (in minutes by default)
 def calculate_travel_time(origin, destination):
     try:
@@ -116,34 +91,6 @@ def calculate_travel_time(origin, destination):
     except Exception as e:
         return jsonify({"success": False, "message": str(e)})
 
-def get_track_spotify_uri(track_name, track_artist):
-    url = "https://api.spotify.com/v1/search"
-    query = f"track:{track_name} artist:{track_artist}"
-    params = {
-        'q': query,
-        'type': 'track',
-        'limit': 1 # Return one result
-    }
-
-    response = requests.get(url, headers={
-        'Authorization': f'Bearer {generate_client_credentials()}'
-    }, params=params)
-
-    # Check response
-    if response.status_code == 200:
-        search_results = response.json()
-        tracks = search_results.get('tracks', {}).get('items', [])
-        
-        if tracks:
-            track = tracks[0]
-            return track['uri']
-        else:
-            print("Failed to obtain URI for a track")
-            return None
-    else:
-        print("Error searching for track:", response.status_code, response.text)
-        return None
-    
 def get_user_top_tracks():
     access_token = session.get("spotify_access_token")
 
@@ -165,65 +112,6 @@ def get_user_top_tracks():
         print("Error fetching top tracks:",
               response.status_code, response.text)
         return None
-
-def recommendations_from_mood(mood):
-    url = f"http://ws.audioscrobbler.com/2.0/?method=tag.getTopTracks&tag={mood}&api_key={last_fm_api_key}&format=json&limit=10"
-
-    response = requests.get(url)
-
-    if response.status_code != 200:
-        print(f"Error {response.status_code}: {response.text}")
-        return []
-
-    data = response.json()
-
-    tracks_with_uri = []
-    if 'tracks' in data:
-        for track in data['tracks']['track']:
-            # Fetching Spotify URL after using Last FM API
-            uri = get_track_spotify_uri(track['name'], track['artist']['name'])
-            if uri:
-                tracks_with_uri.append(uri)
-        
-        return tracks_with_uri
-    else:
-        print(f"No tracks found for mood: {mood}")
-        return []
-
-def get_similar_tracks(track, artist, limit=5):
-    url = "https://ws.audioscrobbler.com/2.0/"
-
-    params = {
-        'method': 'track.getsimilar',
-        'artist': artist,
-        'track': track,
-        'api_key': last_fm_api_key,
-        'limit': limit,
-        'format': 'json'
-    }
-
-    response = requests.get(url, params=params)
-
-    if response.status_code == 200:
-        data = response.json()
-        if 'similartracks' in data:
-            similar_tracks = data['similartracks']['track']
-
-            uris_of_similar_tracks = []
-            for track in similar_tracks:
-                # Fetching Spotify URI after using Last FM API
-                uri = get_track_spotify_uri(track['name'], track['artist']['name'])
-                if uri:
-                    uris_of_similar_tracks.append(uri)
-
-            return uris_of_similar_tracks
-        else:
-            print("No similar tracks found or error in response data.")
-            return []
-    else:
-        print(f"Error {response.status_code}: {response.text}")
-        return []
-
 
 def create_playlist(destination):
     access_token = session.get("spotify_access_token")
@@ -331,16 +219,15 @@ def generate_playlist():
     """
     generate_authorisation_token()
 
-    track_list = []
-    top_tracks = get_user_top_tracks()
-    
-    if top_tracks:
-        for track in top_tracks:            
-            track_list.append(track['uri'])
-            track_list.extend(get_similar_tracks(track['name'], track['artists'][0]['name']))
+    top_tracks = get_user_top_tracks() or []
+    seed_tracks = [
+        {'uri': track['uri'], 'name': track['name'], 'artist': track['artists'][0]['name']}
+        for track in top_tracks
+    ]
 
-    track_list.extend(recommendations_from_mood(request.form['mood']))
-    
+    tracks = generate_playlist_tracks(request.form['mood'], seed_tracks)
+    track_list = [track['uri'] for track in tracks]
+
     # Create playlist
     playlist_id = create_playlist(request.form['destination'])
     if add_tracks_to_playlist(playlist_id, track_list) :

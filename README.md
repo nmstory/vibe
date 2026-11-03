@@ -29,28 +29,19 @@ Whilst the aim of this project is to accurately curate a Spotify playlist to set
 - requests (version: 2.32.3)
 - googlemaps (version: 4.10.0)
 
-_Installable from the project root with:_
+_Installable with:_
 ```
-pip install -r requirements.txt
-```
-
-If pip reports an `externally-managed-environment` error (common on Debian/Ubuntu), create and activate a virtual environment first:
-```
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+pip install python-dotenv requests flask googlemaps
 ```
 
 ## API Keys and .env
-The implementation of vibe makes use of three API's: [Spotify](https://developer.spotify.com/), [Google Cloud](https://cloud.google.com/apis) and [Last FM](https://www.last.fm/api).
+The implementation of vibe makes use of three API's: [Spotify](https://developer.spotify.com/), [Google Cloud](https://cloud.google.com/apis) and [ReccoBeats](https://reccobeats.com/docs/documentation/introduction) (track recommendations and audio features, no key needed).
 
 For you to get vibe working locally, you'll need to personally generate your own API keys, then place them into a .env at the root of the project:
 _/.env_
 ```
 SPOTIFY_CLIENT_ID=
 SPOTIFY_CLIENT_SECRET=
-LAST_FM_API_KEY=
-LAST_FM_SECRET=
 GOOGLE_MAPS_API_KEY=
 FLASK_SECRET_KEY=
 ```
