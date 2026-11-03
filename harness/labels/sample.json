@@ -1,0 +1,3058 @@
+{
+  "run": "20261103-224455.json",
+  "random_seed": 2026,
+  "per_case": 3,
+  "items": [
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:0tyR7Bu9P086aWBFZ4QJoo",
+        "name": "Monsters (feat. blackbear)",
+        "artist": "All Time Low"
+      },
+      "id": "R001",
+      "auto_mood_fit": 0.43619639944391986
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1jQfgl9WRle7D8a3GXLwaD",
+        "name": "Transform (feat. Charlotte Day Wilson)",
+        "artist": "Daniel Caesar"
+      },
+      "id": "R002",
+      "auto_mood_fit": 0.7732093476353137
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6AtscuPpNRwDvuehpFtWw1",
+        "name": "r - Cali",
+        "artist": "A$AP Rocky"
+      },
+      "id": "R003",
+      "auto_mood_fit": 0.8654916359477969
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3UpS7kBnkVQYG13pDDFTC4",
+        "name": "As Long as You Love Me",
+        "artist": "Backstreet Boys"
+      },
+      "id": "R004",
+      "auto_mood_fit": 0.9601440092332407
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6TBzRwnX2oYd8aOrOuyK1p",
+        "name": "Fin de Semana",
+        "artist": "Oscar Maydon"
+      },
+      "id": "R005",
+      "auto_mood_fit": 0.7334423139356137
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:40dHZ1HyySmu9FmTINRbqM",
+        "name": "Getting Away With Murder",
+        "artist": "Papa Roach"
+      },
+      "id": "R006",
+      "auto_mood_fit": 0.9142649429929623
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1QoyuMHNBe7lg3YW4Qtll4",
+        "name": "St. Chroma (feat. Daniel Caesar)",
+        "artist": "Tyler, The Creator"
+      },
+      "id": "R007",
+      "auto_mood_fit": 0.9122931017536249
+    },
+    {
+      "kind": "control",
+      "mood": "energetic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3lG6OtGDsYAOALxEmubQQm",
+        "name": "Happiness is a butterfly",
+        "artist": "Lana Del Rey"
+      },
+      "id": "R008",
+      "auto_mood_fit": 0.34654877764289094
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4bSYbo0UJPlPDoq7a21pDl",
+        "name": "Primeiramente - Ao Vivo",
+        "artist": "Kamisa 10"
+      },
+      "id": "R009",
+      "auto_mood_fit": 0.788876813210865
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3NFs3XUduzBfvc5Bx1gmzh",
+        "name": "The Dead Dance",
+        "artist": "Lady Gaga"
+      },
+      "id": "R010",
+      "auto_mood_fit": 0.9531278334189681
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:73EKQrgYNVwOaKdwh5a1PV",
+        "name": "Run It Up (feat. Key Glock)",
+        "artist": "Offset"
+      },
+      "id": "R011",
+      "auto_mood_fit": 0.9324833353904386
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2aEuXA1KswHlCGPOuPmCOW",
+        "name": "Touch My Body",
+        "artist": "Mariah Carey"
+      },
+      "id": "R012",
+      "auto_mood_fit": 0.9396303056161455
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:624ra5mDiibqvFYDK4yhmo",
+        "name": "Mulher de fases",
+        "artist": "Raimundos"
+      },
+      "id": "R013",
+      "auto_mood_fit": 0.6881146043816736
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4XJRpBOG0bU3Nxnvam3FnC",
+        "name": "LOVE YOU BETTER",
+        "artist": "Future"
+      },
+      "id": "R014",
+      "auto_mood_fit": 0.9191142781450273
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1qosh64U6CR5ki1g1Rf2dZ",
+        "name": "Love Lee",
+        "artist": "AKMU"
+      },
+      "id": "R015",
+      "auto_mood_fit": 0.7721184518220047
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2plbrEY59IikOBgBGLjaoe",
+        "name": "Die With A Smile",
+        "artist": "Lady Gaga"
+      },
+      "id": "R016",
+      "auto_mood_fit": 0.8515260965691277
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2K87XMYnUMqLcX3zvtAF4G",
+        "name": "Drag Me Down",
+        "artist": "One Direction"
+      },
+      "id": "R017",
+      "auto_mood_fit": 0.6185330944891813
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7ne4VBA60CxGM75vw0EYad",
+        "name": "That\u2019s So True",
+        "artist": "Gracie Abrams"
+      },
+      "id": "R018",
+      "auto_mood_fit": 0.5696234207115818
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:51luOIjzLNNTkDNOGfypKP",
+        "name": "Selawat Tafrijiyah 1",
+        "artist": "Bazli Unic"
+      },
+      "id": "R019",
+      "auto_mood_fit": 0.7409691138107273
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1n1y2kFPISpF9WGD3JaFo5",
+        "name": "Suzume",
+        "artist": "RADWIMPS"
+      },
+      "id": "R020",
+      "auto_mood_fit": 0.9359687576256714
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7FLTjvwvWMrBvoA9NlRSqO",
+        "name": "Aplico o Ch\u00e1",
+        "artist": "Mc DB"
+      },
+      "id": "R021",
+      "auto_mood_fit": 0.8213313122004866
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2vzpoecVhBE1pKtHzKONaN",
+        "name": "Seluruh Nafas Ini",
+        "artist": "Last Child"
+      },
+      "id": "R022",
+      "auto_mood_fit": 0.7204780867266396
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4pftaoQbbheCXSdleWIeDK",
+        "name": "GBP (feat. 21 Savage)",
+        "artist": "Central Cee"
+      },
+      "id": "R023",
+      "auto_mood_fit": 0.7993896812225253
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2K87XMYnUMqLcX3zvtAF4G",
+        "name": "Drag Me Down",
+        "artist": "One Direction"
+      },
+      "id": "R024",
+      "auto_mood_fit": 0.7822455511361479
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2E15s04ukVGhCuIFkk56b8",
+        "name": "tu fan",
+        "artist": "mafalda cardenal"
+      },
+      "id": "R025",
+      "auto_mood_fit": 0.624589557950235
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6Gj8DibSTKIKn9uu2nEzbp",
+        "name": "Zombies",
+        "artist": "Travis Scott"
+      },
+      "id": "R026",
+      "auto_mood_fit": 0.6948115336386383
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2n0RDpwqVVNUneRiP147h4",
+        "name": "Egoc\u00eantrica",
+        "artist": "CJota"
+      },
+      "id": "R027",
+      "auto_mood_fit": 0.90972818823132
+    },
+    {
+      "kind": "control",
+      "mood": "excited",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3lG6OtGDsYAOALxEmubQQm",
+        "name": "Happiness is a butterfly",
+        "artist": "Lana Del Rey"
+      },
+      "id": "R028",
+      "auto_mood_fit": 0.28421476684692637
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2LzRBroL4J9pXLf1Nsen4s",
+        "name": "Waiting For Us (Bang Chan, Lee Know, Seungmin, I.N)",
+        "artist": "Stray Kids"
+      },
+      "id": "R029",
+      "auto_mood_fit": 0.7669399219085345
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:37BYze5s1mi14oE0U0c3Fg",
+        "name": "SMB (w/ Hongjoong of ATEEZ)",
+        "artist": "Odetari"
+      },
+      "id": "R030",
+      "auto_mood_fit": 0.6518843582945462
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7cFwopK7QTOgaEwF9JgipA",
+        "name": "Second Nature",
+        "artist": "Clairo"
+      },
+      "id": "R031",
+      "auto_mood_fit": 0.9353393473586912
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:73BxcpQnUWiipj7enBaS4v",
+        "name": "Cavalo de Tr\u00f3ia",
+        "artist": "Mc Kevin"
+      },
+      "id": "R032",
+      "auto_mood_fit": 0.8209511239912408
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6SfcAUMXsi6eW6vZki5tC5",
+        "name": "Novinha do TKT",
+        "artist": "Felipe Amorim"
+      },
+      "id": "R033",
+      "auto_mood_fit": 0.8828057168629801
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3LUFeTIPLxgZYdBxG0eV5k",
+        "name": "G\u00dcZEL VE \u0130DD\u0130ALI",
+        "artist": "BLOK3"
+      },
+      "id": "R034",
+      "auto_mood_fit": 0.9434137825968195
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:5hKjEpYrJIJs6uPl7zw6Y6",
+        "name": "No Te Hagas",
+        "artist": "Jory Boy"
+      },
+      "id": "R035",
+      "auto_mood_fit": 0.7945870013850147
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:39L3LdlHS3gqB62HPWaJRg",
+        "name": "NO ME QUIERO CASAR",
+        "artist": "Bad Bunny"
+      },
+      "id": "R036",
+      "auto_mood_fit": 0.6974665307771717
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4wH7ZoqgETaACS9BlUkvuY",
+        "name": "Fingers Crossed",
+        "artist": "Lauren Spencer Smith"
+      },
+      "id": "R037",
+      "auto_mood_fit": 0.9552227736455238
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6Gj8DibSTKIKn9uu2nEzbp",
+        "name": "Zombies",
+        "artist": "Travis Scott"
+      },
+      "id": "R038",
+      "auto_mood_fit": 0.5491230766606036
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2tzgSUZOUKopYbRqQOVT8X",
+        "name": "MASSAGING ME",
+        "artist": "Future"
+      },
+      "id": "R039",
+      "auto_mood_fit": 0.7539176966947847
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:624ra5mDiibqvFYDK4yhmo",
+        "name": "Mulher de fases",
+        "artist": "Raimundos"
+      },
+      "id": "R040",
+      "auto_mood_fit": 0.4895369748943613
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6g95dK7o7vVh8ZCnDAseU5",
+        "name": "\u0643\u0644\u0627\u0645 \u0639\u064a\u0646\u064a\u0647",
+        "artist": "Sherine"
+      },
+      "id": "R041",
+      "auto_mood_fit": 0.9254815459097547
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2aBxt229cbLDOvtL7Xbb9x",
+        "name": "Always Be My Baby",
+        "artist": "Mariah Carey"
+      },
+      "id": "R042",
+      "auto_mood_fit": 0.9419913799509073
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3RauRsiIxUOQTS8h9sVWcP",
+        "name": "\u7f8e\u3057\u3044\u9c2d",
+        "artist": "SPITZ"
+      },
+      "id": "R043",
+      "auto_mood_fit": 0.9219583444563098
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7LR85XLWw2yXqKBSI5brbG",
+        "name": "Run This Town",
+        "artist": "JAY-Z"
+      },
+      "id": "R044",
+      "auto_mood_fit": 0.6622449112152416
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:5hVghJ4KaYES3BFUATCYn0",
+        "name": "EARFQUAKE",
+        "artist": "Tyler, The Creator"
+      },
+      "id": "R045",
+      "auto_mood_fit": 0.8186536463007872
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:58rlJQKF6RyDfkAxiCqVEO",
+        "name": "Tere Layi",
+        "artist": "Nirvair Pannu"
+      },
+      "id": "R046",
+      "auto_mood_fit": 0.8245862035072498
+    },
+    {
+      "kind": "control",
+      "mood": "tired",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3NKuSd9Qa5fzwhqiuKYFh4",
+        "name": "Dil Chori (From \"Sonu Ke Titu Ki Sweety\")",
+        "artist": "Yo Yo Honey Singh"
+      },
+      "id": "R047",
+      "auto_mood_fit": 0.38990820362833933
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:5CKbUv7zkOdf8X2602qgei",
+        "name": "Joy. (feat. Amma & Absolutely)",
+        "artist": "RAYE"
+      },
+      "id": "R048",
+      "auto_mood_fit": 0.6316869538015251
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1eroCliWpJrEu1V7VSObcO",
+        "name": "Circadian Rhythm",
+        "artist": "Drake"
+      },
+      "id": "R049",
+      "auto_mood_fit": 0.8251114640692535
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:16h03SmAjgMQacOa7j9bFy",
+        "name": "Dear god",
+        "artist": "Tate McRae"
+      },
+      "id": "R050",
+      "auto_mood_fit": 0.6466375798135857
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6TBzRwnX2oYd8aOrOuyK1p",
+        "name": "Fin de Semana",
+        "artist": "Oscar Maydon"
+      },
+      "id": "R051",
+      "auto_mood_fit": 0.7561701412870032
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7LR85XLWw2yXqKBSI5brbG",
+        "name": "Run This Town",
+        "artist": "JAY-Z"
+      },
+      "id": "R052",
+      "auto_mood_fit": 0.7455820367977135
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:37BYze5s1mi14oE0U0c3Fg",
+        "name": "SMB (w/ Hongjoong of ATEEZ)",
+        "artist": "Odetari"
+      },
+      "id": "R053",
+      "auto_mood_fit": 0.577644107416506
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1HYzRuWjmS9LXCkdVHi25K",
+        "name": "Stay With Me",
+        "artist": "CHANYEOL"
+      },
+      "id": "R054",
+      "auto_mood_fit": 0.8401876099922162
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6YiIWuVXS4AqF1KvUGMwyx",
+        "name": "crystallized (feat. In\u00e9z)",
+        "artist": "John Summit"
+      },
+      "id": "R055",
+      "auto_mood_fit": 0.9574970589252931
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2vzpoecVhBE1pKtHzKONaN",
+        "name": "Seluruh Nafas Ini",
+        "artist": "Last Child"
+      },
+      "id": "R056",
+      "auto_mood_fit": 0.7510371513659116
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:5CKbUv7zkOdf8X2602qgei",
+        "name": "Joy. (feat. Amma & Absolutely)",
+        "artist": "RAYE"
+      },
+      "id": "R057",
+      "auto_mood_fit": 0.5484421410273098
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2BLwLAc1swTc4TC7K3J506",
+        "name": "Hark! The Herald Angels Sing - Remastered 1999",
+        "artist": "Frank Sinatra"
+      },
+      "id": "R058",
+      "auto_mood_fit": 0.7359924243511182
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1qosh64U6CR5ki1g1Rf2dZ",
+        "name": "Love Lee",
+        "artist": "AKMU"
+      },
+      "id": "R059",
+      "auto_mood_fit": 0.8986096651549074
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:0A9FAzeaUEMHB68FPk3GYc",
+        "name": "CUORICINI",
+        "artist": "Coma_Cose"
+      },
+      "id": "R060",
+      "auto_mood_fit": 0.9269452260286845
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:624ra5mDiibqvFYDK4yhmo",
+        "name": "Mulher de fases",
+        "artist": "Raimundos"
+      },
+      "id": "R061",
+      "auto_mood_fit": 0.8615352030297954
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3UGNdLrhhsK0SY9gNqe8TT",
+        "name": "All The Things (Your Man Won't Do)",
+        "artist": "Joe"
+      },
+      "id": "R062",
+      "auto_mood_fit": 0.848598216655153
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:47q370VByrWHa7cZKMwIig",
+        "name": "Accounts",
+        "artist": "NIJJAR"
+      },
+      "id": "R063",
+      "auto_mood_fit": 0.9325759686758497
+    },
+    {
+      "kind": "control",
+      "mood": "calm",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:538V6gFAnhcLZrg6I8lIMI",
+        "name": "Hungry Cheetah (From \"They Call Him OG\")",
+        "artist": "Thaman S"
+      },
+      "id": "R064",
+      "auto_mood_fit": 0.4479125974992728
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:26eV0R7nbqtlzh316ncU99",
+        "name": "Fantastic Baby",
+        "artist": "BIGBANG"
+      },
+      "id": "R065",
+      "auto_mood_fit": 0.936340750868393
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4xlpJ99yL9xYQtzG6c3hwk",
+        "name": "Luv(sic.) pt3 (feat. Shing02)",
+        "artist": "Nujabes"
+      },
+      "id": "R066",
+      "auto_mood_fit": 0.9559488933169664
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1uwRaRWJiMiDD945IPdFbV",
+        "name": "Futuri Possibili",
+        "artist": "Franco126"
+      },
+      "id": "R067",
+      "auto_mood_fit": 0.7814365080806037
+    },
+    {
+      "kind": "repeat",
+      "mood": "angry",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3LUFeTIPLxgZYdBxG0eV5k",
+        "name": "G\u00dcZEL VE \u0130DD\u0130ALI",
+        "artist": "BLOK3"
+      },
+      "id": "R068",
+      "repeat_of": "R034",
+      "auto_mood_fit": 0.9434137825968195
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1jN0ysNJ2d9VZwVdlgspjr",
+        "name": "De 10 Mulher 11 \u00c9 Maluca",
+        "artist": "MC Saci"
+      },
+      "id": "R069",
+      "auto_mood_fit": 0.7147553681486714
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1xwAWUI6Dj0WGC3KiUPN0O",
+        "name": "Vigilante Shit",
+        "artist": "Taylor Swift"
+      },
+      "id": "R070",
+      "auto_mood_fit": 0.96749615407371
+    },
+    {
+      "kind": "control",
+      "mood": "romantic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:538V6gFAnhcLZrg6I8lIMI",
+        "name": "Hungry Cheetah (From \"They Call Him OG\")",
+        "artist": "Thaman S"
+      },
+      "id": "R071",
+      "auto_mood_fit": 0.5152830722988933
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2LzRBroL4J9pXLf1Nsen4s",
+        "name": "Waiting For Us (Bang Chan, Lee Know, Seungmin, I.N)",
+        "artist": "Stray Kids"
+      },
+      "id": "R072",
+      "auto_mood_fit": 0.8440609093267504
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:15N3zfcJSyUEMn5KgY99ua",
+        "name": "Slip",
+        "artist": "Elliot Moss"
+      },
+      "id": "R073",
+      "auto_mood_fit": 0.9377866573796263
+    },
+    {
+      "kind": "sample",
+      "mood": "romantic",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7gdAgbYxtwwXsWsItU1apk",
+        "name": "Lucky",
+        "artist": "Halsey"
+      },
+      "id": "R074",
+      "auto_mood_fit": 0.8148190074548687
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:43NeZM2TbrQr6djoAnDyVo",
+        "name": "She's In The Rain",
+        "artist": "The Rose"
+      },
+      "id": "R075",
+      "auto_mood_fit": 0.7747312715887977
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2BLwLAc1swTc4TC7K3J506",
+        "name": "Hark! The Herald Angels Sing - Remastered 1999",
+        "artist": "Frank Sinatra"
+      },
+      "id": "R076",
+      "auto_mood_fit": 0.49641286751943325
+    },
+    {
+      "kind": "control",
+      "mood": "tired",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6SfcAUMXsi6eW6vZki5tC5",
+        "name": "Novinha do TKT",
+        "artist": "Felipe Amorim"
+      },
+      "id": "R077",
+      "auto_mood_fit": 0.3843422216848066
+    },
+    {
+      "kind": "control",
+      "mood": "nostalgic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6SfcAUMXsi6eW6vZki5tC5",
+        "name": "Novinha do TKT",
+        "artist": "Felipe Amorim"
+      },
+      "id": "R078",
+      "auto_mood_fit": 0.5608707479568231
+    },
+    {
+      "kind": "sample",
+      "mood": "angry",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:79mFFAOYcG8ZF6AN1JecAL",
+        "name": "FINE SHIT",
+        "artist": "Playboi Carti"
+      },
+      "id": "R079",
+      "auto_mood_fit": 0.7420542692735543
+    },
+    {
+      "kind": "repeat",
+      "mood": "angry",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:58rlJQKF6RyDfkAxiCqVEO",
+        "name": "Tere Layi",
+        "artist": "Nirvair Pannu"
+      },
+      "id": "R080",
+      "repeat_of": "R046",
+      "auto_mood_fit": 0.8245862035072498
+    },
+    {
+      "kind": "control",
+      "mood": "energetic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6cx5CvFhqN19efStehJqoW",
+        "name": "Valentine",
+        "artist": "Laufey"
+      },
+      "id": "R081",
+      "auto_mood_fit": 0.4229852688188974
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2JJdNXpiCQoAeLQvVMpIEh",
+        "name": "Yo Vengo De La Nada",
+        "artist": "Juan Freer"
+      },
+      "id": "R082",
+      "auto_mood_fit": 0.9514356097536476
+    },
+    {
+      "kind": "repeat",
+      "mood": "sad",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:2LzRBroL4J9pXLf1Nsen4s",
+        "name": "Waiting For Us (Bang Chan, Lee Know, Seungmin, I.N)",
+        "artist": "Stray Kids"
+      },
+      "id": "R083",
+      "repeat_of": "R029",
+      "auto_mood_fit": 0.7669399219085345
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6mZSQRmm7HfFeFo0HUsUiX",
+        "name": "Faz Amor T\u00e3o Bem",
+        "artist": "L\u00e9o Foguete"
+      },
+      "id": "R084",
+      "auto_mood_fit": 0.947
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3lG6OtGDsYAOALxEmubQQm",
+        "name": "Happiness is a butterfly",
+        "artist": "Lana Del Rey"
+      },
+      "id": "R085",
+      "auto_mood_fit": 0.868286295322013
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:5hVghJ4KaYES3BFUATCYn0",
+        "name": "EARFQUAKE",
+        "artist": "Tyler, The Creator"
+      },
+      "id": "R086",
+      "auto_mood_fit": 0.7890817693986601
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3UGNdLrhhsK0SY9gNqe8TT",
+        "name": "All The Things (Your Man Won't Do)",
+        "artist": "Joe"
+      },
+      "id": "R087",
+      "auto_mood_fit": 0.8103358230977711
+    },
+    {
+      "kind": "control",
+      "mood": "nostalgic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3NKuSd9Qa5fzwhqiuKYFh4",
+        "name": "Dil Chori (From \"Sonu Ke Titu Ki Sweety\")",
+        "artist": "Yo Yo Honey Singh"
+      },
+      "id": "R088",
+      "auto_mood_fit": 0.5708589975311145
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:48gtujiZ77wSZ29aWZe84V",
+        "name": "Sentry (feat. MIKE)",
+        "artist": "Earl Sweatshirt"
+      },
+      "id": "R089",
+      "auto_mood_fit": 0.9494628849260269
+    },
+    {
+      "kind": "repeat",
+      "mood": "calm",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:624ra5mDiibqvFYDK4yhmo",
+        "name": "Mulher de fases",
+        "artist": "Raimundos"
+      },
+      "id": "R090",
+      "repeat_of": "R040",
+      "auto_mood_fit": 0.4895369748943613
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:0Pjsm4AaJGPOXHoB6xCgJB",
+        "name": "Mariposa Traicionera",
+        "artist": "Man\u00e1"
+      },
+      "id": "R091",
+      "auto_mood_fit": 0.9490834015275961
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1LjSbD1yQ0RQc6mwxGHw4m",
+        "name": "Ms. Whitman",
+        "artist": "Bhad Bhabie"
+      },
+      "id": "R092",
+      "auto_mood_fit": 0.8276486147430199
+    },
+    {
+      "kind": "sample",
+      "mood": "sad",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4rcuS31IcZynp91dqvmhmA",
+        "name": "Semua Aku Dirayakan",
+        "artist": "Nadin Amizah"
+      },
+      "id": "R093",
+      "auto_mood_fit": 0.9822799548533306
+    },
+    {
+      "kind": "sample",
+      "mood": "nostalgic",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:37AGgp9VP8TVJBfEat74Bj",
+        "name": "Candy (feat. Trippie Redd)",
+        "artist": "mgk"
+      },
+      "id": "R094",
+      "auto_mood_fit": 0.8663138002634527
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:74fQgHleHZ4V7Gm1XYcGkj",
+        "name": "One Night Only",
+        "artist": "Sonder"
+      },
+      "id": "R095",
+      "auto_mood_fit": 0.8143928880672942
+    },
+    {
+      "kind": "sample",
+      "mood": "focused",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6Sq7ltF9Qa7SNFBsV5Cogx",
+        "name": "Me Porto Bonito",
+        "artist": "Bad Bunny"
+      },
+      "id": "R096",
+      "auto_mood_fit": 0.7786755774886107
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:37BYze5s1mi14oE0U0c3Fg",
+        "name": "SMB (w/ Hongjoong of ATEEZ)",
+        "artist": "Odetari"
+      },
+      "id": "R097",
+      "auto_mood_fit": 0.6182481172279566
+    },
+    {
+      "kind": "repeat",
+      "mood": "excited",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:6SfcAUMXsi6eW6vZki5tC5",
+        "name": "Novinha do TKT",
+        "artist": "Felipe Amorim"
+      },
+      "id": "R098",
+      "repeat_of": "R033",
+      "auto_mood_fit": 0.8828057168629801
+    },
+    {
+      "kind": "sample",
+      "mood": "happy",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:7ne4VBA60CxGM75vw0EYad",
+        "name": "That\u2019s So True",
+        "artist": "Gracie Abrams"
+      },
+      "id": "R099",
+      "auto_mood_fit": 0.659523862803867
+    },
+    {
+      "kind": "sample",
+      "mood": "excited",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1uwRaRWJiMiDD945IPdFbV",
+        "name": "Futuri Possibili",
+        "artist": "Franco126"
+      },
+      "id": "R100",
+      "auto_mood_fit": 0.6462062747871297
+    },
+    {
+      "kind": "sample",
+      "mood": "energetic",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:1uwRaRWJiMiDD945IPdFbV",
+        "name": "Futuri Possibili",
+        "artist": "Franco126"
+      },
+      "id": "R101",
+      "auto_mood_fit": 0.6922338550132585
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "upbeat_pop_rock",
+      "seeds": [
+        {
+          "uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+          "name": "Mr. Brightside",
+          "artist": "The Killers"
+        },
+        {
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "name": "Blinding Lights",
+          "artist": "The Weeknd"
+        },
+        {
+          "uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+          "name": "Shape of You",
+          "artist": "Ed Sheeran"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4Tn2llBm1g0UlWctmgPL8Z",
+        "name": "Shut Up And Drive",
+        "artist": "Rihanna"
+      },
+      "id": "R102",
+      "auto_mood_fit": 0.49627586915058364
+    },
+    {
+      "kind": "sample",
+      "mood": "tired",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:3UpS7kBnkVQYG13pDDFTC4",
+        "name": "As Long as You Love Me",
+        "artist": "Backstreet Boys"
+      },
+      "id": "R103",
+      "auto_mood_fit": 0.4790983778101666
+    },
+    {
+      "kind": "sample",
+      "mood": "calm",
+      "seed_set": "mellow_acoustic",
+      "seeds": [
+        {
+          "uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+          "name": "when the party's over",
+          "artist": "Billie Eilish"
+        },
+        {
+          "uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM",
+          "name": "Skinny Love",
+          "artist": "Bon Iver"
+        },
+        {
+          "uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf",
+          "name": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:39L3LdlHS3gqB62HPWaJRg",
+        "name": "NO ME QUIERO CASAR",
+        "artist": "Bad Bunny"
+      },
+      "id": "R104",
+      "auto_mood_fit": 0.6510351020517967
+    },
+    {
+      "kind": "repeat",
+      "mood": "happy",
+      "seed_set": "hip_hop",
+      "seeds": [
+        {
+          "uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+          "name": "HUMBLE.",
+          "artist": "Kendrick Lamar"
+        },
+        {
+          "uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+          "name": "God's Plan",
+          "artist": "Drake"
+        },
+        {
+          "uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+          "name": "SICKO MODE",
+          "artist": "Travis Scott"
+        }
+      ],
+      "track": {
+        "uri": "spotify:track:4xlpJ99yL9xYQtzG6c3hwk",
+        "name": "Luv(sic.) pt3 (feat. Shing02)",
+        "artist": "Nujabes"
+      },
+      "id": "R105",
+      "repeat_of": "R066",
+      "auto_mood_fit": 0.9559488933169664
+    }
+  ]
+}
