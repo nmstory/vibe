@@ -29,9 +29,16 @@ Whilst the aim of this project is to accurately curate a Spotify playlist to set
 - requests (version: 2.32.3)
 - googlemaps (version: 4.10.0)
 
-_Installable with:_
+_Installable from the project root with:_
 ```
-pip install python-dotenv requests flask googlemaps
+pip install -r requirements.txt
+```
+
+If pip reports an `externally-managed-environment` error (common on Debian/Ubuntu), create and activate a virtual environment first:
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## API Keys and .env
