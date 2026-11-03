@@ -15,6 +15,10 @@ MAX_SEEDS = 5
 MAX_RECOMMENDATIONS = 100
 MAX_AUDIO_FEATURE_IDS = 40
 
+# Playlist shape
+SIMILAR_PER_SEED = 5
+MOOD_TRACKS = 10
+
 # Target audio features per mood, on Spotify's 0-1 scales.
 # valence: how positive a track sounds, energy: how intense it feels
 MOOD_TARGETS = {
@@ -100,11 +104,11 @@ def get_audio_features(tracks):
     return features
 
 
-def get_similar_tracks(track, limit=5):
+def get_similar_tracks(track, limit=SIMILAR_PER_SEED):
     return get_recommendations([track], limit)
 
 
-def recommendations_from_mood(mood, seed_tracks, limit=10):
+def recommendations_from_mood(mood, seed_tracks, limit=MOOD_TRACKS):
     if not seed_tracks:
         print("No seed tracks to base mood recommendations on.")
         return []
