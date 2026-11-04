@@ -168,6 +168,11 @@ From the project root, with the virtual environment set up (on Windows, use `.ve
    ```
    python -m harness.judge report
    ```
+   Both `report` and `python -m harness.ratings summary` take `--sheet` to read another sheet with the same rows. For example, to reproduce the pilot figures below from the archived rubric-v1 ratings:
+   ```
+   python -m harness.judge report --sheet harness/labels/sheet_v1.csv
+   ```
+   The report covers every judge results file, and each file's name records its rubric version (`_v1`, `_v2`). Compare each sheet only with the judge files of the same rubric version.
 7. **Change the recommendation logic** in `pipeline.py`, then run step 1 again. The comparison table shows which metrics moved and in which direction.
 
 ## Findings so far
@@ -192,7 +197,24 @@ Baseline (33 cases): `mood_fit` 0.77, `fill` 0.93, `artists` 0.99, no duplicates
 - **Neither judge can stand in for the human ratings yet:** agreement is close to chance for both.
 - **A stronger model helped only a little.** Opus knew more tracks and separated the controls better, but kept the same ~1.8-point gap. So the problem is the scale, not the model.
 - **The human ratings have problems too.** 65% of `mood_fit` scores were 5, and the 2 controls averaged 4.0, so quick ratings barely used the bottom of the scale. The judges put most `seed_fit` scores at 2.
-- **Next:** anchor the rubric with example tracks for 1, 3 and 5, or switch to pairwise comparisons, which don't depend on how a rater uses the scale. Rate only tracks you know, and use a larger sample.
+### Rubric v2: anchored scale
+
+The rubric now gives example tracks for 1, 3 and 5 on each dimension, and guidance on using the whole scale. None of the anchor tracks or artists appear on the sheet, and the seed-fit anchors use a made-up rock seed set, so the examples don't leak answers. The v1 ratings are archived in `harness/labels/sheet_v1.csv`, and judge results are versioned (`_v1` / `_v2`), so the two rubric versions are never mixed.
+
+Opus 5.5 on rubric v2 ($1.25 for 105 rows):
+
+| | Rubric v1 | Rubric v2 |
+|---|---|---|
+| Tracks not known | 49 | 46 |
+| Controls vs sampled, `mood_fit` | 1.50 vs 3.02 | 1.33 vs 2.96 |
+| `seed_fit` scored 2 | 55 of 101 | 58 of 101 |
+| ρ with the v1 human ratings (`mood_fit` / `seed_fit`)* | 0.30 / 0.18 | 0.41 / 0.31 |
+
+\* Comparing the v2 judge with ratings made against v1 mixes rubric versions, so these figures are only indicative.
+
+- **The anchors barely moved the judge.** It ranks tracks slightly more like the human and separates the controls a little better, but its score levels hardly changed. Its harsh `seed_fit` may be correct: many picks are further from the seeds than the "3" anchor (Billie Jean for rock seeds).
+- **The anchors are mainly a fix for the human ratings,** which were the lenient side. The real test is re-rating the same 44 rows against rubric v2, then comparing the two. **Not done yet:** `sheet.csv` is blank, waiting for v2 ratings.
+- **If agreement is still low after that,** switch to pairwise comparisons, which don't depend on how each rater uses the scale.
 
 ## Next
 

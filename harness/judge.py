@@ -32,7 +32,7 @@ RUBRIC_PATH = RATINGS_DIR / "RUBRIC.md"
 
 DEFAULT_MODEL = "claude-opus-5-5"
 DEFAULT_EFFORT = "medium"
-PROMPT_VERSION = 1  # bump whenever the prompt below changes, so results stay comparable
+PROMPT_VERSION = 2  # bump whenever the prompt below changes, so results stay comparable
 
 # Per 1M tokens (input, output); for cost estimates only
 PRICES = {
@@ -243,9 +243,9 @@ def print_agreement(label, stats):
 
 
 def report_command(args):
-    items, human, problems = read_ratings()
+    items, human, problems = read_ratings(args.sheet)
     for problem in problems:
-        print(f"Problem in sheet.csv: {problem}")
+        print(f"Problem in {args.sheet or 'sheet.csv'}: {problem}")
 
     paths = sorted(JUDGE_DIR.glob("*.json")) if JUDGE_DIR.exists() else []
     if not paths:
@@ -335,6 +335,7 @@ def main():
     run.set_defaults(func=run_command)
 
     report = commands.add_parser('report', help="agreement with human ratings and other checks")
+    report.add_argument('--sheet', type=Path, help="human ratings to compare with (default: harness/labels/sheet.csv)")
     report.set_defaults(func=report_command)
 
     args = parser.parse_args()

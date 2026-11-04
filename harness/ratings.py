@@ -168,15 +168,17 @@ def spearman(xs, ys):
     return cov / var if var else None
 
 
-def read_ratings():
-    if not SHEET_PATH.exists() or not SAMPLE_PATH.exists():
-        raise SystemExit("No rating sheet yet; run `python -m harness.ratings sample` first.")
+def read_ratings(sheet_path=None):
+    # sheet_path: a different filled-in sheet with the same rows, e.g. an archived rubric version
+    sheet_path = Path(sheet_path) if sheet_path else SHEET_PATH
+    if not sheet_path.exists() or not SAMPLE_PATH.exists():
+        raise SystemExit(f"No rating sheet at {sheet_path}; run `python -m harness.ratings sample` first.")
 
     items = {item['id']: item for item in json.loads(SAMPLE_PATH.read_text(encoding='utf-8'))['items']}
     problems = []
     ratings = {}
 
-    with SHEET_PATH.open(newline='', encoding='utf-8-sig') as f:
+    with sheet_path.open(newline='', encoding='utf-8-sig') as f:
         for row in csv.DictReader(f):
             if row['id'] not in items:
                 problems.append(f"{row['id']}: not in sample.json")
@@ -203,7 +205,7 @@ def fmt(value, digits=2):
 
 
 def summary_command(args):
-    items, ratings, problems = read_ratings()
+    items, ratings, problems = read_ratings(args.sheet)
 
     for problem in problems:
         print(f"Problem: {problem}")
@@ -272,6 +274,7 @@ def main():
     sample.set_defaults(func=sample_command)
 
     summary = commands.add_parser('summary', help="summarise the filled-in ratings")
+    summary.add_argument('--sheet', type=Path, help="sheet to read (default: harness/labels/sheet.csv)")
     summary.set_defaults(func=summary_command)
 
     args = parser.parse_args()
