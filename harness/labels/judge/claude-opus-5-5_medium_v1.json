@@ -1,0 +1,1269 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "prompt_version": 1,
+  "sample_run": "20261103-224455.json",
+  "system_prompt": "You are rating tracks for a playlist evaluation, using the same rubric as the human raters.\n\nEach request gives a requested mood, the listener's seed tracks (their taste), and one track to rate. Rate the track on its own, on both dimensions below, from 1 to 5.\n\n## mood_fit: does this track suit the requested mood?\n\n| Score | Meaning |\n|---|---|\n| 5 | Clearly this mood. You'd pick it for a playlist with that name |\n| 4 | Fits well, with small reservations |\n| 3 | Neutral or ambiguous. Neither fits nor clashes |\n| 2 | Mostly doesn't fit |\n| 1 | Clashes with the mood, e.g. an aggressive track for \"calm\" |\n\n## seed_fit: would someone who likes the seed tracks enjoy this track?\n\n| Score | Meaning |\n|---|---|\n| 5 | Same scene or sound as the seeds. An obvious recommendation |\n| 4 | Adjacent genre or era. A plausible recommendation |\n| 3 | Some connection, but a stretch |\n| 2 | Weak connection |\n| 1 | No connection, e.g. a children's song for hip-hop seeds |\n\nRules:\n- Set known_track to true only if you know this specific recording well enough to judge how it sounds.\n- If you don't know the track, don't guess from its title: set mood_fit to null. You may still rate seed_fit if you know the artist well enough to judge the fit with the seeds; otherwise set it to null too.\n- rationale: one short sentence saying what the scores rest on.",
+  "rows": {
+    "R001": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 285,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 4,
+        "rationale": "Monsters pairs lonely, self-doubting lyrics with a driving, catchy pop-punk sound, so it's only partly sad, while its crossover radio-rock polish sits close to Mr. Brightside and the mainstream pop of the other seeds."
+      }
+    ],
+    "R002": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1040,
+        "output_tokens": 289,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "A tender, slow soulful R&B duet about love's transformative pull that suits a romantic mood well, and its intimate, melancholic softness sits adjacent to the seeds' hushed emotional ballads."
+      }
+    ],
+    "R003": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 559,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't place this specific recording well enough to judge its energy, and A$AP Rocky's cloud-rap and hip-hop has only a weak link to the melancholic pop and indie-folk ballads in the seeds."
+      }
+    ],
+    "R004": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1029,
+        "output_tokens": 197,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "An upbeat, warm late-90s boy-band pop love song that suits a happy mood well, but its bright teen-pop sound has little in common with the seeds' melancholic, sparse modern ballads and indie folk."
+      }
+    ],
+    "R005": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 265,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this recording well enough to judge its mood, but Oscar Maydon's corridos tumbados sound is only weakly connected to the seeds' hushed, sad pop and indie-folk ballads."
+      }
+    ],
+    "R006": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 285,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "A heavy, defiant mid-2000s hard rock anthem with snarling vocals that suits an angry mood well; it shares a 2000s radio-rock era with Mr. Brightside but is much heavier than the pop-leaning seeds."
+      }
+    ],
+    "R007": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1038,
+        "output_tokens": 396,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "St. Chroma is a whispered, marching build into an uplifting, self-affirming climax with Daniel Caesar's soulful vocals: intense but not angry. Its experimental hip-hop sound sits apart from the seeds' mainstream rock and synth-pop hits."
+      }
+    ],
+    "R008": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 208,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 2,
+        "rationale": "A slow, dreamy piano ballad from Norman Fucking Rockwell!, it is the opposite of energetic and has little in common with the hard-hitting mainstream hip-hop of the seeds."
+      }
+    ],
+    "R009": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1033,
+        "output_tokens": 255,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific live recording, so mood is unrated; Kamisa 10 is a Brazilian pagode group, which has little in common with the seeds' sparse, melancholic English-language pop and indie folk ballads."
+      }
+    ],
+    "R010": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 252,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this recording well enough to judge its mood, and Lady Gaga's dance-pop has only a weak connection to these mainstream hip-hop seeds."
+      }
+    ],
+    "R011": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 283,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Offset's Atlanta trap is only weakly connected to the seeds' mainstream pop and pop-rock hits."
+      }
+    ],
+    "R012": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 106,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "Touch My Body is a light, flirty, upbeat R&B-pop single that suits a happy mood fairly well, but its playful sensual R&B sound has little in common with the sad, sparse ballads in the seeds."
+      }
+    ],
+    "R013": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 313,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 1,
+        "rationale": "Mulher de Fases is an upbeat, catchy, humorous Brazilian pop-rock hit that suits a happy mood, but its 90s Brazilian rock sound has essentially nothing in common with the modern US hip-hop seeds."
+      }
+    ],
+    "R014": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 342,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "A slow, melodic trap ballad from I NEVER LIKED YOU, about love but with Future's brooding, toxic-tinged edge, so only moderately romantic; its hip-hop production sits far from the sad acoustic and pop-ballad seeds, sharing just the melancholy tone."
+      }
+    ],
+    "R015": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1018,
+        "output_tokens": 203,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "Love Lee is a bright, bouncy acoustic K-pop tune, gentle but more cheerful than calm. Its light pop sound has little in common with the hard-hitting US hip-hop seeds."
+      }
+    ],
+    "R016": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 234,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "A slow, emotive, vocal-led retro soul-pop duet with Bruno Mars that pulls attention more than it supports concentration, and it shares little beyond mainstream chart status with the trap and hip-hop seeds."
+      }
+    ],
+    "R017": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 118,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Drag Me Down is an upbeat, driving pop-rock anthem that doesn't suit a tired, low-energy mood, and as boy-band pop it has only a weak link to the mainstream hip-hop seeds beyond sharing the same chart era."
+      }
+    ],
+    "R018": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 302,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 4,
+        "rationale": "An upbeat, fast-strummed, emotionally charged pop song that doesn't fit a tired mood, but as a big mainstream chart hit it sits close to the seeds' anthemic pop."
+      }
+    ],
+    "R019": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 289,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 1,
+        "rationale": "I don't know this recording, so I can't rate its mood, but Bazli Unic's Malaysian nasyid devotional selawat has essentially no link to the seeds' mainstream Western pop and rock."
+      }
+    ],
+    "R020": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 324,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "Suzume is an airy, atmospheric anime theme with soft female vocals that could sit in the background, but its swelling choral build and prominent vocals make it only moderately suited to focus; its gentle, emotional tone echoes the intimate seed ballads, though it comes from a different J-pop/anime scene."
+      }
+    ],
+    "R021": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 225,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording or Mc DB well enough to judge how it sounds or how it compares to the US hip-hop seeds, so both scores are left unrated."
+      }
+    ],
+    "R022": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 314,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "An emotional Indonesian pop-rock power ballad duet whose slow verses suit calm but whose soaring, intense choruses don't, and whose mainstream pop-rock sound is only loosely tied to the seeds' Western chart hits."
+      }
+    ],
+    "R023": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 383,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 2,
+        "rationale": "GBP is a hard, money-flexing UK rap track with 21 Savage that clashes with a romantic mood, and it has only a weak link to the seeds' mainstream pop and rock beyond general chart popularity."
+      }
+    ],
+    "R024": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 354,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "An upbeat, driving pop-rock song about a partner who keeps you strong, so it is devotional but more anthemic than tender; boy-band pop shares little beyond late-2010s mainstream popularity with the trap and hip-hop seeds."
+      }
+    ],
+    "R025": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 254,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording, so mood is unrated; Mafalda Cardenal's soft, intimate Spanish indie-pop is loosely adjacent to the seeds' melancholic, vocal-led sound, but the language and scene differ."
+      }
+    ],
+    "R026": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 293,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't place a Travis Scott recording called 'Zombies', so mood is unrated; his dark trap sound is only weakly connected to these mainstream pop and rock seeds, mainly via his ties to The Weeknd."
+      }
+    ],
+    "R027": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 147,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording or the artist CJota well enough to judge its sound or how it relates to the seeds' melancholic indie-pop and folk."
+      }
+    ],
+    "R028": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 258,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "A slow, dreamy, melancholic piano ballad from Norman Fucking Rockwell, the opposite of an excited energy, with only a weak link to the hard-hitting mainstream hip-hop of the seeds."
+      }
+    ],
+    "R029": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 537,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this vocal-unit recording well enough to judge its mood, and Stray Kids' K-pop is only loosely tied to the seeds' mainstream US hip-hop."
+      }
+    ],
+    "R030": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 260,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Odetari's distorted, TikTok-driven hyperpop/sigilkore sound is only loosely connected to the mainstream pop and rock hits in the seeds."
+      }
+    ],
+    "R031": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 413,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "From Clairo's Charm, this is a warm, hushed '70s-soft-rock-tinged song about easy intimacy, which suits a romantic mood; its soft, intimate indie sound sits close to the seeds' quiet, emotional style."
+      }
+    ],
+    "R032": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 243,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood; MC Kevin's Brazilian funk/trap has only a weak link to the seeds' mainstream Anglo pop and rock hits."
+      }
+    ],
+    "R033": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 267,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Felipe Amorim makes Brazilian piseiro/forr\u00f3-pop, which has only a weak link to the seeds' mainstream US hip-hop."
+      }
+    ],
+    "R034": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 236,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording, so mood is unrated; BLOK3 is a Turkish trap/rap artist whose sound sits close to the seeds' mainstream US trap and hip-hop, though the language difference makes it a slightly less obvious pick."
+      }
+    ],
+    "R035": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 309,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Jory Boy is a Puerto Rican reggaeton artist, which connects only loosely to the seeds' mainstream English-language pop/rock, apart from Shape of You's dancehall touch."
+      }
+    ],
+    "R036": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 275,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, and Bad Bunny's Latin trap/reggaeton has only a weak link to the seeds' hushed, melancholic pop and indie-folk ballads."
+      }
+    ],
+    "R037": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 233,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "A 2022 piano-driven breakup ballad that looks back on a failed relationship, so it is more heartbroken than wistfully nostalgic, and its emotional pop-singer style has little in common with the mainstream hip-hop seeds."
+      }
+    ],
+    "R038": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 464,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't place a Travis Scott recording called 'Zombies', so mood isn't rated; his dark, heavy trap sound is only weakly connected to the seeds' mainstream pop and rock hits."
+      }
+    ],
+    "R039": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 317,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood; seed_fit rests only on Future's typical moody Atlanta trap sound, which connects weakly to the seeds' mainstream pop and pop-rock."
+      }
+    ],
+    "R040": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 371,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Raimundos' 'Mulher de fases' is an upbeat, guitar-driven Brazilian pop-rock hit with playful energy, so it doesn't suit 'calm', and Brazilian rock has only a weak link to the seeds' mainstream US hip-hop and trap."
+      }
+    ],
+    "R041": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 288,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't recall this specific recording well enough to judge its mood, but Sherine's Egyptian Arabic pop has only a weak link to the mainstream Western pop/rock seeds."
+      }
+    ],
+    "R042": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 96,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "A 90s R&B-pop love song that now evokes strong nostalgia, but its upbeat, polished sound differs from the seeds' sparse, melancholic indie/pop balladry."
+      }
+    ],
+    "R043": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 345,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "Spitz's 2023 Detective Conan theme is a bright, mid-tempo guitar-pop song that is uplifting rather than high-energy, and its Japanese pop-rock sound is only loosely tied to the seeds' anthemic Western pop and rock."
+      }
+    ],
+    "R044": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 275,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "A dark, swaggering 2009 hip-hop anthem about power rather than looking back, so it fits nostalgia poorly; it shares the seeds' mainstream-hit status and Rihanna hook but leans harder into rap than their pop/synth sound."
+      }
+    ],
+    "R045": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 116,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "EARFQUAKE is a warm, pleading love song with lush synths, fitting romantic well, and as a 2019 hip-hop crossover hit, it sits adjacent to the seeds' mainstream rap, though it is softer and more melodic."
+      }
+    ],
+    "R046": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 305,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood fit is left unrated; Nirvair Pannu's romantic Punjabi pop has only a weak link to the seeds' melancholic English-language indie and pop ballads."
+      }
+    ],
+    "R047": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1048,
+        "output_tokens": 286,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Dil Chori is an upbeat, high-energy Bollywood-Punjabi party remake that doesn't suit a tired mood, and its desi pop-rap sound connects only weakly to the American hip-hop/trap seeds."
+      }
+    ],
+    "R048": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 273,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood fit is unrated; RAYE's soulful British pop/R&B only loosely connects to the seeds' mainstream US hip-hop and trap."
+      }
+    ],
+    "R049": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 214,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 5,
+        "rationale": "I don't recognize this specific Drake recording, so I can't judge its mood, but Drake is himself a seed artist and squarely in the seeds' mainstream hip-hop scene."
+      }
+    ],
+    "R050": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 250,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I can't confidently recall how this recording sounds, so mood is unrated, but Tate McRae's emotional pop balladry sits close to Billie Eilish and Lewis Capaldi."
+      }
+    ],
+    "R051": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 343,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this recording well enough to judge its mood, but Oscar Maydon's corridos tumbados / regional Mexican sound connects only weakly with the seeds' hushed English-language pop and indie-folk balladry."
+      }
+    ],
+    "R052": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 288,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "Run This Town is a booming, anthemic stadium-rap hit with a Rihanna hook that brings hype energy, though its brooding, mid-tempo march is less outright euphoric; it shares mainstream chart appeal with the pop and rock seeds but sits in a different genre."
+      }
+    ],
+    "R053": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 260,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Odetari's distorted, TikTok-driven hyperpop/sigilkore sound is only weakly connected to the seeds' mainstream pop and rock hits."
+      }
+    ],
+    "R054": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 354,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "Chanyeol and Punch's Goblin OST is a wistful, melancholic pop ballad with rap that suits a sad mood well, but as a K-drama soundtrack piece it is only loosely connected to the seeds' mainstream Western pop and rock hits."
+      }
+    ],
+    "R055": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 273,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "Crystallized is a euphoric, melodic house track with soaring female vocals, so it carries no real anger, and its mainstream dance sound connects only loosely to the synth-pop and pop-rock seeds."
+      }
+    ],
+    "R056": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 300,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "Last Child's slow, emotional Indonesian pop-rock power ballad could suit a tired, low-energy mood, though its building dramatic intensity is not restful, and it only loosely connects to the upbeat global pop and rock hits in the seeds."
+      }
+    ],
+    "R057": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 260,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific RAYE recording, so I can't judge its mood; RAYE's pop/R&B/soul style has only a weak link to the seeds' mainstream trap and hip-hop."
+      }
+    ],
+    "R058": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 302,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "A 1950s Sinatra Christmas carol with lush orchestral and choral backing strongly evokes vintage holiday nostalgia, but it has little in common with the seeds' intimate, melancholic modern pop and indie-folk sound."
+      }
+    ],
+    "R059": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1019,
+        "output_tokens": 258,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "AKMU's 'Love Lee' is a bright, playful acoustic-pop love song that suits a romantic mood, though it's cute rather than sultry, and its light K-pop sound shares little with the seeds' hard-hitting mainstream hip-hop."
+      }
+    ],
+    "R060": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 302,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "Coma_Cose's 2025 Sanremo hit is a bouncy, catchy dance-pop track that suits an energetic mood. Its Italian-language indie-pop scene is only loosely connected to the seeds' global mainstream pop and rock, beyond shared upbeat, retro-tinged hooks."
+      }
+    ],
+    "R061": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 249,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "Raimundos' 1999 hit is an upbeat, driving Brazilian rock song that suits an energetic mood, but it has little in common with the modern US hip-hop of the seeds."
+      }
+    ],
+    "R062": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 241,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "Joe's smooth, seductive mid-90s R&B slow jam is warm and confident rather than overtly happy, and its groove-based R&B sound has little in common with the sparse, melancholic pop and indie-folk ballads in the seeds."
+      }
+    ],
+    "R063": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 223,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this NIJJAR recording or the artist well enough to judge its sound or how it fits the hip-hop seeds, so both scores are left unrated."
+      }
+    ],
+    "R064": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1037,
+        "output_tokens": 481,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 1,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Thaman S's Telugu film scoring has little connection to the hushed, melancholic Western indie-pop and ballads of the seeds."
+      }
+    ],
+    "R065": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 113,
+        "known_track": true,
+        "mood_fit": 5,
+        "seed_fit": 3,
+        "rationale": "Fantastic Baby is a high-octane EDM-pop K-pop anthem that is clearly energetic, but its K-pop/EDM sound is only loosely connected to the seeds' mainstream Western pop and indie-rock hits."
+      }
+    ],
+    "R066": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 391,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "A warm, mellow jazz-rap track with a bright piano loop, but its bittersweet, reflective tone reads more chill than happy, and its laid-back underground sound is far from the seeds' mainstream trap energy."
+      }
+    ],
+    "R067": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 327,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording, so mood is unrated; Franco126's mellow, melancholic Italian indie-cantautore style loosely matches the sad, intimate seeds, though the language and scene differ."
+      }
+    ],
+    "R068": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 224,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording, so mood is unrated; BLOK3 is a Turkish rap/trap artist, which shares the seeds' trap sound but sits in a different-language scene, making it a somewhat stretched recommendation."
+      }
+    ],
+    "R069": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 274,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood fit is unrated; MC Saci is a Brazilian funk artist, which is only weakly connected to the seeds' mainstream Anglo pop and rock hits."
+      }
+    ],
+    "R070": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 318,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 4,
+        "rationale": "A dark, whispery, minimal revenge track that is menacing and smug rather than sad, though its Billie Eilish-like sparse production and mainstream pop-singer audience make it a plausible fit for these seeds."
+      }
+    ],
+    "R071": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1038,
+        "output_tokens": 267,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 1,
+        "rationale": "Hungry Cheetah is a high-octane, percussion-heavy Telugu mass hype anthem for a gangster film, which clashes with a romantic mood and has nothing in common with the seeds' hushed, melancholic singer-songwriter pop."
+      }
+    ],
+    "R072": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 460,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't recall this specific recording, so mood fit is unrated; Stray Kids are K-pop with some hip-hop influence, and a vocal-unit track likely has only a weak link to mainstream US rap seeds like Kendrick, Drake and Travis Scott."
+      }
+    ],
+    "R073": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 273,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "Slip is a slow, hazy, melancholic downtempo track with soft soulful vocals that suits a tired mood, and its moody, intimate electronic sound sits close to Billie Eilish and Bon Iver's hushed sadness."
+      }
+    ],
+    "R074": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1019,
+        "output_tokens": 755,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 4,
+        "rationale": "Halsey's 2024 'Lucky' reworks Britney Spears' song into a melancholy reflection on fame and loneliness rather than romance, though its mainstream pop sound sits close to the Weeknd and Ed Sheeran seeds."
+      }
+    ],
+    "R075": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 259,
+        "known_track": true,
+        "mood_fit": 5,
+        "seed_fit": 2,
+        "rationale": "The Rose's debut single is a melancholic, rain-themed indie rock ballad that fits a sad mood well, but this Korean band sound has little in common with the mainstream hip-hop seeds."
+      }
+    ],
+    "R076": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1043,
+        "output_tokens": 106,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 2,
+        "rationale": "Sinatra's warm, joyful orchestral Christmas carol is the opposite of angry, and its classic crooner holiday style has only a weak link to the seeds' modern, melancholic singer-songwriter sound."
+      }
+    ],
+    "R077": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 347,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood fit is unrated; Felipe Amorim makes upbeat Brazilian forr\u00f3/piseiro party music, which connects only weakly to the seeds' mainstream Anglo pop and rock."
+      }
+    ],
+    "R078": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 223,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 1,
+        "rationale": "I don't know this specific recording, but Felipe Amorim makes upbeat Brazilian piseiro/forr\u00f3 party music, which has essentially nothing in common with the seeds' sparse, melancholic indie and pop ballads."
+      }
+    ],
+    "R079": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 268,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Playboi Carti's trap sound sits close to Travis Scott and the other mainstream hip-hop seeds."
+      }
+    ],
+    "R080": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 289,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Nirvair Pannu makes melodic Punjabi pop, whose emotional style only loosely matches the seeds' sad English-language ballads."
+      }
+    ],
+    "R081": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 220,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 4,
+        "rationale": "Laufey's 'Valentine' is a soft, jazzy, string-laden ballad that clashes with an energetic mood, but its intimate, melancholic vocal style sits close to the quiet emotional pop of the seeds."
+      }
+    ],
+    "R082": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 123,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't recognize this recording or know Juan Freer well enough to judge either its mood or its fit with the hip-hop seeds."
+      }
+    ],
+    "R083": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 307,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this Stray Kids unit recording well enough to judge its mood, and a K-pop vocal-unit track is only weakly connected to the mainstream US hip-hop seeds despite the group's hip-hop leanings."
+      }
+    ],
+    "R084": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 245,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; L\u00e9o Foguete is a Brazilian piseiro/forr\u00f3-pop singer, which has little in common with the US mainstream hip-hop seeds beyond broad pop appeal."
+      }
+    ],
+    "R085": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 236,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "Despite its title, this Norman Fucking Rockwell cut is a slow, wistful piano ballad with a melancholic, longing tone, close to the hushed sad-pop of Billie Eilish and the emotional balladry of the other seeds."
+      }
+    ],
+    "R086": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 161,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 4,
+        "rationale": "EARFQUAKE is a mellow, warm, synth-soul love song whose laid-back haze suits a tired mood moderately, though its bouncy hook and Playboi Carti verse keep it from being truly restful; it sits squarely in late-2010s mainstream hip-hop alongside the seeds, but its melodic, R&B-leaning sound differs from their harder trap energy."
+      }
+    ],
+    "R087": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 251,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Joe's 1996 track is a smooth, seductive R&B slow jam, too laid-back for 'excited', and its 90s R&B sound only loosely connects to the sad, sparse pop and indie ballads in the seeds."
+      }
+    ],
+    "R088": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1051,
+        "output_tokens": 330,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "An upbeat Bollywood-Punjabi party remake of Hans Raj Hans's classic; the borrowed hook offers only faint nostalgia, and its desi pop-rap sound is only loosely tied to the US trap and hip-hop seeds."
+      }
+    ],
+    "R089": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1038,
+        "output_tokens": 331,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Earl Sweatshirt's abstract, lo-fi underground rap is only weakly connected to the seeds' emotional pop and indie-folk ballads, beyond a shared introspective tone."
+      }
+    ],
+    "R090": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 361,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 1,
+        "rationale": "Raimundos' 'Mulher de Fases' is an upbeat, guitar-driven Brazilian pop-rock song, too energetic to feel calm, and it has no real link to the seeds' mainstream US hip-hop and trap."
+      }
+    ],
+    "R091": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 337,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 1,
+        "rationale": "Man\u00e1's Latin pop-rock hit has a breezy, mid-tempo sound but bittersweet lyrics about a fickle lover, so it's only neutral for happy, and it has essentially no stylistic link to the hip-hop/trap seeds."
+      }
+    ],
+    "R092": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 288,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this recording well enough to judge its energy, but Bhad Bhabie's late-2010s trap rap is adjacent to the Kendrick, Drake and Travis Scott seeds, though less acclaimed and more novelty-tinged."
+      }
+    ],
+    "R093": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 352,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Nadin Amizah's gentle, emotional Indonesian indie-folk balladry sits plausibly near the intimate, melancholic sound of the seeds, though the language and scene differ."
+      }
+    ],
+    "R094": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 387,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 4,
+        "rationale": "A melodic late-2010s trap/emo-rap track about a toxic romance, not reflective or wistful, so it fits nostalgic poorly. Its era and mainstream rap sound sit close to the Kendrick, Drake and Travis Scott seeds."
+      }
+    ],
+    "R095": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1018,
+        "output_tokens": 478,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I can't confidently recall this specific recording, so mood isn't rated; Sonder's moody alt-R&B (Brent Faiyaz) sits adjacent to the mainstream rap seeds, making it a plausible recommendation."
+      }
+    ],
+    "R096": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 288,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "A bouncy, vocal-forward reggaeton party track that suits dancing more than concentration, and while it shares mainstream chart-pop appeal (and some rhythmic kinship with Shape of You), its Latin urban genre is a stretch from the seeds' pop/rock."
+      }
+    ],
+    "R097": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 289,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood. Odetari's usual distorted, sped-up hyperpop/trap sound has only a weak link to the mainstream pop and pop-rock of the seeds."
+      }
+    ],
+    "R098": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 277,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Felipe Amorim makes Brazilian piseiro/forr\u00f3-pop party music, which has only a weak link to the seeds' mainstream US hip-hop."
+      }
+    ],
+    "R099": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 272,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 4,
+        "rationale": "An energetic, driving acoustic-pop singalong whose lyrics are jealous and bitter about an ex, so it fits 'happy' only ambiguously; as a recent mainstream pop smash it's a plausible match for listeners of these big crossover pop/rock hits."
+      }
+    ],
+    "R100": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 332,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Franco126's wistful, mellow Italian indie-cantautore style shares the melancholic tone of the seeds, though the language and scene differ."
+      }
+    ],
+    "R101": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 314,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its energy. Franco126's wistful, mellow Italian indie cantautorato loosely matches the melancholic, intimate tone of the seeds, though it comes from a different language scene."
+      }
+    ],
+    "R102": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 111,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 4,
+        "rationale": "Shut Up And Drive is an upbeat, high-energy rock-pop single that clashes with a tired mood, but as a 2000s mainstream pop/rock crossover hit it sits close to the seeds' radio-pop taste."
+      }
+    ],
+    "R103": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1029,
+        "output_tokens": 104,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "An upbeat, bouncy 90s boy-band pop song that doesn't suit a tired, low-energy mood and only loosely connects to the seeds' sparse, melancholic ballads through mainstream pop."
+      }
+    ],
+    "R104": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 259,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't recall this specific recording well enough to judge its mood, but Bad Bunny's Latin trap/reggaeton sound connects only weakly with the seeds' hushed, melancholic pop and folk ballads."
+      }
+    ],
+    "R105": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-opus-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 354,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "A warm, jazzy, mellow hip-hop track that feels pleasant and gently uplifting rather than overtly happy, and it shares hip-hop roots with the mainstream trap seeds but comes from a very different underground jazz-rap scene."
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_version": 1,
+  "sample_run": "20261103-224455.json",
+  "system_prompt": "You are rating tracks for a playlist evaluation, using the same rubric as the human raters.\n\nEach request gives a requested mood, the listener's seed tracks (their taste), and one track to rate. Rate the track on its own, on both dimensions below, from 1 to 5.\n\n## mood_fit: does this track suit the requested mood?\n\n| Score | Meaning |\n|---|---|\n| 5 | Clearly this mood. You'd pick it for a playlist with that name |\n| 4 | Fits well, with small reservations |\n| 3 | Neutral or ambiguous. Neither fits nor clashes |\n| 2 | Mostly doesn't fit |\n| 1 | Clashes with the mood, e.g. an aggressive track for \"calm\" |\n\n## seed_fit: would someone who likes the seed tracks enjoy this track?\n\n| Score | Meaning |\n|---|---|\n| 5 | Same scene or sound as the seeds. An obvious recommendation |\n| 4 | Adjacent genre or era. A plausible recommendation |\n| 3 | Some connection, but a stretch |\n| 2 | Weak connection |\n| 1 | No connection, e.g. a children's song for hip-hop seeds |\n\nRules:\n- Set known_track to true only if you know this specific recording well enough to judge how it sounds.\n- If you don't know the track, don't guess from its title: set mood_fit to null. You may still rate seed_fit if you know the artist well enough to judge the fit with the seeds; otherwise set it to null too.\n- rationale: one short sentence saying what the scores rest on.",
+  "rows": {
+    "R001": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-sonnet-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 118,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "Pop-punk ballad-leaning track about struggling with inner demons and depression, with melancholic tone fitting sad; its mainstream emo-pop sound is adjacent to The Killers' angsty indie rock and the radio pop of the other seeds."
+      }
+    ],
+    "R002": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-sonnet-5-5",
+        "input_tokens": 1040,
+        "output_tokens": 97,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording well enough to judge its sound, but Daniel Caesar's moody, soulful R&B is an adjacent fit for seeds of sparse, emotional ballads."
+      }
+    ],
+    "R003": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-sonnet-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 102,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific track, so I can't judge its mood; A$AP Rocky is a hip-hop artist, which has only a weak link to the seeds' quiet, sad pop and indie-folk sound."
+      }
+    ],
+    "R004": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-sonnet-5-5",
+        "input_tokens": 1029,
+        "output_tokens": 107,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "A mid-tempo 90s pop ballad about devotion that feels warm but wistful rather than clearly happy, and its polished boy-band sound is only loosely tied to the seeds' sad, intimate indie-pop."
+      }
+    ],
+    "R005": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-sonnet-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 105,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording so I can't judge its mood, but Oscar Maydon is a Mexican regional/corrido-style artist, which has only a weak connection to the sad, intimate pop/indie seeds."
+      }
+    ]
+  }
+}

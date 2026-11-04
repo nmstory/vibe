@@ -1,0 +1,1269 @@
+{
+  "model": "claude-haiku-5-5",
+  "effort": "medium",
+  "prompt_version": 1,
+  "sample_run": "20261103-224455.json",
+  "system_prompt": "You are rating tracks for a playlist evaluation, using the same rubric as the human raters.\n\nEach request gives a requested mood, the listener's seed tracks (their taste), and one track to rate. Rate the track on its own, on both dimensions below, from 1 to 5.\n\n## mood_fit: does this track suit the requested mood?\n\n| Score | Meaning |\n|---|---|\n| 5 | Clearly this mood. You'd pick it for a playlist with that name |\n| 4 | Fits well, with small reservations |\n| 3 | Neutral or ambiguous. Neither fits nor clashes |\n| 2 | Mostly doesn't fit |\n| 1 | Clashes with the mood, e.g. an aggressive track for \"calm\" |\n\n## seed_fit: would someone who likes the seed tracks enjoy this track?\n\n| Score | Meaning |\n|---|---|\n| 5 | Same scene or sound as the seeds. An obvious recommendation |\n| 4 | Adjacent genre or era. A plausible recommendation |\n| 3 | Some connection, but a stretch |\n| 2 | Weak connection |\n| 1 | No connection, e.g. a children's song for hip-hop seeds |\n\nRules:\n- Set known_track to true only if you know this specific recording well enough to judge how it sounds.\n- If you don't know the track, don't guess from its title: set mood_fit to null. You may still rate seed_fit if you know the artist well enough to judge the fit with the seeds; otherwise set it to null too.\n- rationale: one short sentence saying what the scores rest on.",
+  "rows": {
+    "R001": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 387,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "The track is an upbeat pop-punk and pop-rock song with melancholic lyrics about inner struggle, so it is only ambiguous for sad, and its pop-rock sound is a loose stretch from the seeds."
+      }
+    ],
+    "R002": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1040,
+        "output_tokens": 503,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its sound, so mood_fit is null; I know Daniel Caesar's romantic neo-soul style, which has some connection to the seeds' emotional ballad sound but is a stretch from them."
+      }
+    ],
+    "R003": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 330,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; A$AP Rocky's hip-hop sits far from the seeds' indie-pop and folk-ballad sound, a weak connection."
+      }
+    ],
+    "R004": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1029,
+        "output_tokens": 275,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "It's a bright, upbeat 90s pop-rock song with a romantic feel that suits a happy mood, but its boy-band sound is a weak connection to the melancholic singer-songwriter seeds."
+      }
+    ],
+    "R005": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 220,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording well enough to judge how it sounds, and I don't know the artist well enough to judge fit with these seeds."
+      }
+    ],
+    "R006": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 512,
+        "known_track": true,
+        "mood_fit": 5,
+        "seed_fit": 3,
+        "rationale": "Papa Roach's aggressive nu-metal sound is a strong match for angry, while its rock energy has only a loose connection to the seeds, which are mostly pop with one alt-rock track."
+      }
+    ],
+    "R007": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1038,
+        "output_tokens": 806,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "The track is a lush, melodic R&B cut with Daniel Caesar's soft vocals, which mostly doesn't suit an angry mood, though Tyler's rap adds some edge; it's a stretch from the pop seeds, with only some R&B overlap with The Weeknd."
+      }
+    ],
+    "R008": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 279,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "I know this slow, dreamy, melancholic Lana Del Rey ballad well, so it mostly misses an energetic mood, and its orchestral dream-pop sound has only a weak connection to the hip-hop seeds."
+      }
+    ],
+    "R009": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1033,
+        "output_tokens": 357,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific live recording, so mood is unrated; Kamisa 10 is a pagode group, a genre far from the mellow indie pop and folk seeds, so the connection is weak."
+      }
+    ],
+    "R010": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 627,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its sound, so mood is unrated, but Lady Gaga's pop style has only a weak connection to the hip-hop seed tracks."
+      }
+    ],
+    "R011": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 384,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Offset's trap-leaning hip-hop has only a weak connection to the rock and pop seeds."
+      }
+    ],
+    "R012": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 220,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "It's an upbeat, bouncy dance-pop track that suits a happy mood, though its sensual R&B style is far from the melancholic indie and ballad seeds."
+      }
+    ],
+    "R013": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 378,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 1,
+        "rationale": "Raimundos' upbeat, playful punk-forr\u00f3 sounds clearly happy, but it shares no genre, language, or scene with the US hip-hop seeds."
+      }
+    ],
+    "R014": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 402,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood_fit is left blank; Future's trap and hip-hop style has only a weak connection to the indie and singer-songwriter seeds."
+      }
+    ],
+    "R015": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1018,
+        "output_tokens": 559,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 1,
+        "rationale": "I don't know this recording well enough to judge its sound, but AKMU is a Korean folk-pop act with no clear connection to the hip-hop seeds, so seed_fit is low."
+      }
+    ],
+    "R016": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 320,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "It's a slow, emotive pop ballad with prominent vocals and sentimental lyrics, which is a poor match for focused listening, and it's far from the hip-hop seeds apart from a loose mainstream-pop connection."
+      }
+    ],
+    "R017": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 288,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "This is an upbeat, bouncy 2015 pop-rock single that feels energetic rather than tired, and its boy-band pop sound has only a weak connection to the hip-hop seeds."
+      }
+    ],
+    "R018": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 363,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "It's a soft, mellow indie-pop track with a low-key, wistful feel that suits a tired mood, but it's a stretch from the seeds' higher-energy pop and rock sound, with only a loose link through Ed Sheeran-style singer-songwriter pop."
+      }
+    ],
+    "R019": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 208,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I don't know the artist well enough to judge fit with the seeds, so both scores are left null."
+      }
+    ],
+    "R020": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 340,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Suzume is an energetic, vocal-driven Japanese rock anthem that is a poor fit for focused listening, and its sound is only a weak connection to the emotional indie pop and singer-songwriter seeds."
+      }
+    ],
+    "R021": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 348,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; as a Brazilian funk artist, MC DB sits in a different scene from the US rap and trap seeds, with only loose rhythmic overlap."
+      }
+    ],
+    "R022": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 498,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, so mood_fit is null. Last Child is an Indonesian rock band with only a weak connection to the Killers, The Weeknd and Ed Sheeran seeds, so seed_fit is 2."
+      }
+    ],
+    "R023": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 554,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 2,
+        "rationale": "As I recall this UK drill track, its hard-edged, money-focused bars clash with a romantic mood, and its rap/drill sound has only a weak link to the pop and synth-pop seeds."
+      }
+    ],
+    "R024": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 251,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "It's an upbeat, bouncy pop-rock love song that is only loosely romantic in tone, and its pop-rock sound has little in common with the hip-hop seeds."
+      }
+    ],
+    "R025": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 174,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording or artist well enough to judge how it sounds, so I can't rate mood or seed fit from the title alone."
+      }
+    ],
+    "R026": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 436,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording, so mood fit is unrated; Travis Scott's hip-hop/trap-pop sound has some overlap with The Weeknd's seed, but it's a stretch next to the rock and pop seeds."
+      }
+    ],
+    "R027": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 225,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I don't know the artist well enough to judge fit with the seeds, so I'm leaving both scores blank rather than guessing from the title."
+      }
+    ],
+    "R028": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 427,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "This is a slow, dreamy, melancholic Lana Del Rey song, mostly at odds with an excited mood, and it has only a weak connection to the hip-hop seeds."
+      }
+    ],
+    "R029": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 413,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; judging from Stray Kids' general K-pop style, the connection to the US hip-hop seeds is weak."
+      }
+    ],
+    "R030": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 267,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording well enough to judge how it sounds, and I don't know Odetari's work well enough to judge the fit with these seeds."
+      }
+    ],
+    "R031": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 289,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "Clairo's \"Second Nature\" is a soft, intimate indie pop song about devotion, which suits a romantic mood, and its sparse, confessional bedroom-pop sound is adjacent to the melancholic singer-songwriter seeds."
+      }
+    ],
+    "R032": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 382,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but MC Kevin's Brazilian funk sits far from the rock and pop seeds, so the seed connection is weak."
+      }
+    ],
+    "R033": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 311,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I can't judge its fit with the hip-hop seeds from the artist name alone."
+      }
+    ],
+    "R034": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 422,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording, so mood_fit is null; BLOK3 is a Turkish rap artist with a trap-adjacent sound, a plausible but unverified stretch from the Kendrick, Drake, and Travis Scott seeds."
+      }
+    ],
+    "R035": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 353,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording well enough to judge its sound, and I don't know Jory Boy's catalog well enough to judge fit with the pop and rock seeds, so I won't score either dimension from the title alone."
+      }
+    ],
+    "R036": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 438,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "This is an upbeat reggaeton party track from Bad Bunny's YHLQMDLG, which clashes with a focused mood and sits far from the mellow indie-pop and ballad seeds."
+      }
+    ],
+    "R037": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 405,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "As I recall it, this is a bright, contemporary pop song with no distinctly nostalgic texture, so it sits neutral for the mood, and its pop-singer-songwriter sound is a weak link to the rap seeds."
+      }
+    ],
+    "R038": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 469,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I can't confidently recall this specific recording, so mood is unrated; Travis Scott's hip-hop/trap sound has only a weak connection to the pop and rock seeds."
+      }
+    ],
+    "R039": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 384,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't reliably know how this specific recording sounds, so mood_fit is null; Future's trap-leaning hip-hop has only a weak connection to the rock and pop seeds, though The Weeknd's R&B gives a slight link."
+      }
+    ],
+    "R040": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 666,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its sound, so mood is unrated; Raimundos' Brazilian punk-forr\u00f3 rock has only a weak connection to the US rap seeds."
+      }
+    ],
+    "R041": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 407,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, and Sherine's Arabic pop has only a weak connection to the English pop and rock seeds."
+      }
+    ],
+    "R042": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 292,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "A warm, sentimental 1990s pop-R&B ballad that suits a nostalgic mood well, but its sound is a stretch from the stripped-down indie and emotional pop seeds."
+      }
+    ],
+    "R043": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 544,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its energy, so mood_fit is null; SPITZ's mellower Japanese melodic rock has only a weak connection to these seeds."
+      }
+    ],
+    "R044": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 291,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "A high-energy 2009 club anthem with aggressive hype verses and a driving beat, which mostly clashes with a nostalgic mood, and its mainstream pop-rap crossover gives only a loose connection to the rock and pop seeds."
+      }
+    ],
+    "R045": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 287,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "EARFQUAKE is a sensual, lovestruck R&B-tinged cut from IGOR, a good romantic fit with small reservations for its funky bounce, and it sits in the same 2019-era mainstream hip-hop space as the seeds."
+      }
+    ],
+    "R046": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 352,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I don't know the artist well enough to judge fit with these seeds, so both scores are left blank."
+      }
+    ],
+    "R047": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1048,
+        "output_tokens": 427,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 3,
+        "rationale": "Dil Chori is an upbeat, high-energy Punjabi party track that clashes with a tired mood, and its rap-tinged bhangra-pop sound is a loose stretch from the US rap seeds."
+      }
+    ],
+    "R048": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 430,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its mood, and RAYE's UK soul/R&B sits a bit off the US rap seeds, so the seed fit is a stretch."
+      }
+    ],
+    "R049": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 501,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but as a Drake track it is an adjacent-to-seeds recommendation for a listener of his songs."
+      }
+    ],
+    "R050": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 398,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Tate McRae's pop style is a weak connection to the mostly quiet, intimate seeds."
+      }
+    ],
+    "R051": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 238,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I can't place Oscar Maydon's style closely enough to judge fit with the seeds."
+      }
+    ],
+    "R052": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 357,
+        "known_track": true,
+        "mood_fit": 5,
+        "seed_fit": 3,
+        "rationale": "A high-energy, hype rap anthem that clearly suits an excited mood, but its hip-hop sound is a stretch from the rock and pop seeds beyond shared mainstream chart appeal."
+      }
+    ],
+    "R053": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 284,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I don't know Odetari's work well enough to judge fit with the seed tracks, so I won't score it from the title alone."
+      }
+    ],
+    "R054": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 382,
+        "known_track": true,
+        "mood_fit": 5,
+        "seed_fit": 3,
+        "rationale": "I know this Goblin OST ballad well; its melancholic, pleading tone clearly suits a sad mood, but as a Korean drama ballad it is only a stretch from the English pop and rock seeds."
+      }
+    ],
+    "R055": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 480,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "This is a melodic, uplifting house track with a vocal hook, which mostly doesn't fit an angry mood, and its electronic-pop feel is a stretch from the seeds."
+      }
+    ],
+    "R056": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 470,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Last Child is a mainstream rock band, so the connection to these pop and rock seeds is a stretch rather than a clear match."
+      }
+    ],
+    "R057": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 366,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its mood, and RAYE's UK soul-pop sits well outside the US rap seeds, so the connection is weak."
+      }
+    ],
+    "R058": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 507,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "A vintage big-band Sinatra carol has a warm, retro feel that suits nostalgia, though its holiday theme is a small reservation; it is far in sound and era from the modern pop and indie seeds."
+      }
+    ],
+    "R059": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1019,
+        "output_tokens": 428,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "AKMU's Love Lee is a warm, upbeat acoustic pop love song that suits a romantic mood, but its gentle indie-pop sound has only a weak connection to the hip-hop and trap seeds."
+      }
+    ],
+    "R060": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 414,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its energy, so mood fit is null; Coma_Cose's mellow Italian indie pop is only a weak connection to the pop-rock seeds."
+      }
+    ],
+    "R061": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 271,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 2,
+        "rationale": "Raimundos' fast, upbeat punk-rock with forr\u00f3 touches suits an energetic mood, but its rock and forr\u00f3 sound has only a weak connection to the hip-hop seeds."
+      }
+    ],
+    "R062": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 372,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 2,
+        "rationale": "A smooth, romantic R&B groove that is neither clearly upbeat nor clashing with a happy mood, and it sits far from the sparse indie and piano-pop ballads of the seeds."
+      }
+    ],
+    "R063": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 164,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't recognize this specific recording or know the artist well enough to judge its sound or fit with the seeds, so I can't score it on either dimension."
+      }
+    ],
+    "R064": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1037,
+        "output_tokens": 426,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood_fit is left blank; Thaman S is known for loud, high-energy Telugu film music, a weak connection to the quiet Western pop and indie seeds."
+      }
+    ],
+    "R065": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 312,
+        "known_track": true,
+        "mood_fit": 5,
+        "seed_fit": 4,
+        "rationale": "Fantastic Baby is a loud, driving electro-hip-hop pop track built for high energy, and its polished mainstream dance-pop sound is adjacent to the seeds, though it isn't the same scene."
+      }
+    ],
+    "R066": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 370,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "A mellow, jazz-sampled boom-bap track with a laid-back, reflective feel, so it's neutral for happy; it shares hip-hop with the seeds but its soft jazz production is a stretch from their trap and mainstream rap sound."
+      }
+    ],
+    "R067": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 451,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood_fit is null; I know Franco126 only as an Italian pop-rap/indie artist, a weak match for the English-language melancholic pop and indie seeds."
+      }
+    ],
+    "R068": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 397,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording, so mood is unrated; BLOK3 is a Turkish rapper in a trap-adjacent hip-hop lane, a plausible but loose fit with the seeds."
+      }
+    ],
+    "R069": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 455,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood_fit is null; MC Saci is a Brazilian funk artist, a weak connection to the pop and rock seeds."
+      }
+    ],
+    "R070": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 349,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Vigilante Shit is a playful, sassy revenge-themed synth-pop track, which mostly doesn't suit a sad mood, and its upbeat tone is a weak match for the melancholic seeds despite the shared mainstream pop context."
+      }
+    ],
+    "R071": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1038,
+        "output_tokens": 458,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood_fit is unrated; from the artist's general film-score style (high-energy Telugu action music), the connection to the mellow indie and pop seeds looks weak."
+      }
+    ],
+    "R072": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 540,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its sound, so mood is unrated; Stray Kids is a K-pop group with some hip-hop-leaning production, but that is only a weak link to the Kendrick, Drake and Travis Scott seeds."
+      }
+    ],
+    "R073": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 521,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording well enough to judge its sound, and I don't know Elliot Moss's catalog well enough to judge the fit with these seeds, so I won't score it from the title."
+      }
+    ],
+    "R074": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1019,
+        "output_tokens": 469,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "Halsey's Lucky is a tender, intimate love song, though its wistful tone keeps it from being a clear romantic pick, and its sparse indie-pop ballad style is only a loose connection to the uptempo pop and rock seeds."
+      }
+    ],
+    "R075": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1020,
+        "output_tokens": 383,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording well enough to judge how it sounds, and I don't know The Rose well enough to judge fit with hip-hop seeds, so I won't score it from the title."
+      }
+    ],
+    "R076": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1043,
+        "output_tokens": 317,
+        "known_track": true,
+        "mood_fit": 1,
+        "seed_fit": 2,
+        "rationale": "A cheerful, orchestral Sinatra Christmas carol clashes with an angry mood, and its crooner style and holiday context have only a weak connection to the seeds' emotional indie-pop ballads."
+      }
+    ],
+    "R077": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 251,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I don't know Felipe Amorim's work well enough to judge the fit with these English-language pop and rock seeds."
+      }
+    ],
+    "R078": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1031,
+        "output_tokens": 280,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this recording well enough to judge its sound, and I won't infer it from the title, so neither score can be grounded."
+      }
+    ],
+    "R079": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 381,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording well enough to judge its sound, so mood is unrated; Playboi Carti's Atlanta trap style is adjacent to Travis Scott's SICKO MODE, a plausible recommendation for these seeds."
+      }
+    ],
+    "R080": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 442,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood fit is unrated; the Punjabi-language artist's style is a weak connection to the English-language indie and pop ballad seeds."
+      }
+    ],
+    "R081": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 390,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "Valentine is a soft, jazz-inflected pop ballad, so it runs against an energetic mood, and its tender vocal pop is only a loose connection to the seeds."
+      }
+    ],
+    "R082": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 205,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I can't rate its fit with the seed artists from the title alone."
+      }
+    ],
+    "R083": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1046,
+        "output_tokens": 376,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; Stray Kids' K-pop unit sound is only a weak connection to the US rap seeds."
+      }
+    ],
+    "R084": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1028,
+        "output_tokens": 233,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge how it sounds, and I don't know the artist well enough to judge its fit with the hip-hop seeds, so both scores are left null."
+      }
+    ],
+    "R085": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 455,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 4,
+        "rationale": "A slow, wistful Lana Del Rey track with a melancholic tone that suits a sad mood, and its moody, melancholic pop sits close to the seed artists."
+      }
+    ],
+    "R086": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 312,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 4,
+        "rationale": "EARFQUAKE is a bouncy, upbeat funk-pop track that works against a tired mood, though it isn't aggressive, and as a major mainstream rap release from the same era it's a plausible pick for these hip-hop seeds."
+      }
+    ],
+    "R087": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 360,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "This is a smooth, slow-tempo R&B ballad, which mostly misses the excited mood, and its sensual R&B sound has only a weak connection to the emotive indie and pop ballad seeds."
+      }
+    ],
+    "R088": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1051,
+        "output_tokens": 450,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "It's an upbeat, contemporary Punjabi party track, which clashes with a nostalgic mood, and its Bollywood-pop sound has only a loose rap connection to the US hip-hop seeds."
+      }
+    ],
+    "R089": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1038,
+        "output_tokens": 695,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its mood, but Earl Sweatshirt's moody, introspective alt-hip-hop is a loose stretch from the seeds' tone."
+      }
+    ],
+    "R090": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1021,
+        "output_tokens": 449,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 1,
+        "rationale": "Raimundos' Mulher de Fases is an upbeat, high-energy Brazilian punk-forr\u00f3 track that works against a calm mood, and it has no real connection to the hip-hop seeds."
+      }
+    ],
+    "R091": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1022,
+        "output_tokens": 377,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "Mariposa Traicionera is a wistful Latin rock ballad about betrayal, mostly at odds with a happy mood, and it has only a weak connection to the hip-hop and trap seeds."
+      }
+    ],
+    "R092": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1027,
+        "output_tokens": 367,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 4,
+        "rationale": "I don't know this specific recording well enough to judge its energy, so mood_fit is null; Bhad Bhabie's trap-leaning hip-hop is adjacent to the seed artists, so seed_fit is a plausible 4."
+      }
+    ],
+    "R093": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 474,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 3,
+        "rationale": "I don't know this specific recording well enough to judge its mood, so mood_fit is null. Nadin Amizah's general soft indie-pop and folk style has some overlap with the seeds, but the Indonesian language and the different scene make it a stretch."
+      }
+    ],
+    "R094": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1030,
+        "output_tokens": 548,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "This is a glossy, modern rap-rock crossover with no nostalgic warmth, so it mostly misses the mood; its melodic trap-adjacent feature connects to the seeds only loosely."
+      }
+    ],
+    "R095": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1018,
+        "output_tokens": 258,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording well enough to judge its sound, and I'm not confident enough in the artist to judge fit with the seeds, so both scores are null."
+      }
+    ],
+    "R096": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1026,
+        "output_tokens": 267,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 3,
+        "rationale": "A loud, upbeat reggaeton party track that works against a focused mood, and it's a mainstream pop-chart crossover that only loosely connects to the rock and pop seeds."
+      }
+    ],
+    "R097": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 314,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording or Odetari's sound well enough to judge its energy or its fit with the seed tracks, so I'm not scoring it from the title or artist names."
+      }
+    ],
+    "R098": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 306,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": null,
+        "rationale": "I don't know this specific recording or artist well enough to judge how it sounds or how it fits the seeds, so both scores are left blank."
+      }
+    ],
+    "R099": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1023,
+        "output_tokens": 329,
+        "known_track": true,
+        "mood_fit": 4,
+        "seed_fit": 3,
+        "rationale": "Bright, upbeat, playful indie-pop with a light tone that suits a happy mood, but its softer, intimate indie sound is only a loose match for the bigger pop and rock seeds."
+      }
+    ],
+    "R100": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 396,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording, so mood is unrated; I know Franco126 only as an Italian indie songwriter whose sound is a weak match for the seeds' English singer-songwriter and pop ballad style."
+      }
+    ],
+    "R101": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1025,
+        "output_tokens": 375,
+        "known_track": false,
+        "mood_fit": null,
+        "seed_fit": 2,
+        "rationale": "I don't know this specific recording well enough to judge its energy, so mood_fit is null; Franco126's Italian indie pop-rap has only a weak connection to the emotional English-language seeds."
+      }
+    ],
+    "R102": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1024,
+        "output_tokens": 458,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 4,
+        "rationale": "The track is an upbeat, driving 2007 pop-rock single that works against a tired mood, and its mainstream pop-rock sound and era are adjacent to the seeds."
+      }
+    ],
+    "R103": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1029,
+        "output_tokens": 287,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "I know this upbeat, bouncy 1999 boy-band pop track well, and its energetic feel mostly doesn't suit a tired mood; its polished pop sound is a weak connection to the sparse, melancholic seed tracks."
+      }
+    ],
+    "R104": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1032,
+        "output_tokens": 285,
+        "known_track": true,
+        "mood_fit": 2,
+        "seed_fit": 2,
+        "rationale": "This is an upbeat, bouncy reggaeton-trap track, which clashes with a calm mood, and its sound is far from the sparse, melancholic pop and folk seeds."
+      }
+    ],
+    "R105": [
+      {
+        "stop_reason": "end_turn",
+        "served_by": "claude-haiku-5-5",
+        "input_tokens": 1035,
+        "output_tokens": 433,
+        "known_track": true,
+        "mood_fit": 3,
+        "seed_fit": 3,
+        "rationale": "I know this mellow, jazzy Nujabes track well; it is warm and smooth rather than clearly happy, and as jazz-leaning boom-bap it is a hip-hop connection to the trap-era seeds but a stretch."
+      }
+    ]
+  }
+}

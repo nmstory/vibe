@@ -28,6 +28,7 @@ Whilst the aim of this project is to accurately curate a Spotify playlist to set
 - python-dotenv (version: 1.0.1)
 - requests (version: 2.32.3)
 - googlemaps (version: 4.10.0)
+- anthropic (version: 2.4.0), used only by the evaluation harness's LLM judge
 
 _Installable from the project root with:_
 ```
@@ -51,7 +52,10 @@ SPOTIFY_CLIENT_ID=
 SPOTIFY_CLIENT_SECRET=
 GOOGLE_MAPS_API_KEY=
 FLASK_SECRET_KEY=
+ANTHROPIC_API_KEY=
 ```
+
+`ANTHROPIC_API_KEY` is only needed to run the evaluation harness's LLM judge ([Claude API](https://platform.claude.com/)); the app itself doesn't use it.
 
 ## Spotify Authentication Flow
 
@@ -66,7 +70,7 @@ Follows this flow:
 
 # Evaluation harness
 
-A playlist isn't right or wrong; it's better or worse, along several dimensions at once. The harness in `harness/` treats vibe's recommendations as a system to evaluate: a fixed test set, repeatable runs, graded automated metrics, and blind human ratings used to check how far those metrics (and, next, an LLM judge) can be trusted.
+A playlist isn't right or wrong; it's better or worse, along several dimensions at once. The harness in `harness/` treats vibe's recommendations as a system to evaluate: a fixed test set, repeatable runs, graded automated metrics, blind human ratings, and an LLM judge, with each automated scorer trusted only as far as it agrees with the human ratings.
 
 ## How it works
 
@@ -80,6 +84,8 @@ harness/testset.json ──► pipeline.generate_playlist_tracks(mood, seeds)   
                          harness/ratings.py sample ──► harness/labels/sheet.csv (blind, rated by a person)
                                                        harness/ratings.py summary ──► rater consistency,
                                                                                       human vs metric agreement
+                                                       harness/judge.py run ──► same rows rated by Claude
+                                                       harness/judge.py report ──► judge vs human agreement
 ```
 
 - **Pipeline:** `pipeline.py` holds playlist generation with no session or request dependency, so the harness calls it directly. It uses [ReccoBeats](https://reccobeats.com/docs/documentation/introduction) for similar tracks and audio features, and ranks mood recommendations by distance to a valence/energy target.
@@ -115,7 +121,24 @@ The sheet is built to make the ratings themselves checkable:
 - **Controls (~10%):** tracks picked to clash with the case's mood. If they aren't rated low, the rater or the scale has a problem.
 - **Repeats (~6%):** earlier rows shown again later in the sheet, to measure the rater's own consistency.
 
-The summary then reports Spearman rank correlation between the automated `mood_fit` and the human ratings. The same test will decide whether an LLM judge can stand in for human ratings.
+The summary then reports Spearman rank correlation between the automated `mood_fit` and the human ratings.
+
+## LLM judge
+
+Human ratings are the most trustworthy scorer, but they don't scale: when the pipeline changes, its new tracks have no ratings. `harness/judge.py` has Claude rate the same rows, so that if it agrees with people well enough, it can score runs nobody has rated.
+
+- **Same instrument as the human:** the judge gets the rubric's two dimensions and sees only what the rater sees (mood, seed tracks, track and artist), with no audio features or automated scores, so it can't simply echo the metric.
+- **Fixed output:** structured outputs constrain each reply to `{known_track, mood_fit, seed_fit, rationale}`, where scores are 1–5 or null.
+- **Abstains instead of guessing:** for a track it doesn't know, it leaves `mood_fit` empty rather than guessing from the title. How often it abstains is reported, because a judge that only scores well-known tracks has a blind spot.
+- **Model:** Claude Opus 5.5 (`claude-opus-5-5`) at effort `medium` by default, with the API's server-side refusal fallback enabled. `--model` and `--effort` select others (e.g. `claude-haiku-5-5`, `claude-sonnet-5-5`, effort `low`); Haiku doesn't support the fallback, so it's left off there. Each configuration's results are kept separately, so judges can be compared on agreement, coverage and cost.
+- **Versioned and cached:** results are saved in `harness/labels/judge/<model>_<effort>_v<prompt version>.json` after every call. Re-running only judges rows that aren't done yet, and changing the prompt without bumping `PROMPT_VERSION` is refused, so old and new results are never mixed.
+
+`python -m harness.judge report` measures whether the judge can be trusted:
+
+- **Agreement with the human,** per dimension: exact and within-1-point agreement, Spearman ρ, quadratic-weighted Cohen's κ, and bias (mean judge − human; positive means more lenient).
+- **Tune/test split:** cases are split 15/15 by a fixed hash, by case rather than row, so near-identical rows never fall on both sides. Change the judge prompt only while looking at the tune split; the test split is the honest number.
+- **The ceiling:** the human's agreement with themself on repeat rows, shown alongside. A judge can't be expected to agree with someone better than they agree with themself.
+- **Checks that need no human ratings:** whether controls get lower scores than sampled rows, how the judge's `mood_fit` correlates with the automated metric, and self-consistency on repeat rows (and across `--attempts N` runs, since these models no longer take a temperature setting).
 
 ## Running it
 
@@ -135,7 +158,22 @@ From the project root, with the virtual environment set up (on Windows, use `.ve
    ```
    python -m harness.ratings summary
    ```
-5. **Change the recommendation logic** in `pipeline.py`, then run step 1 again. The comparison table shows which metrics moved and in which direction.
+5. **Run the LLM judge** on the same sheet (needs `ANTHROPIC_API_KEY`). `--dry-run` prints the exact prompt without calling the API, and `--limit 5` tries a few rows first. Measured on 5 rows, a full 105-row pass costs about $0.03 on Haiku 5.5, $0.33 on Sonnet 5.5 and $1.10 on Opus 5.5 at list prices; each run prints its actual token usage.
+   ```
+   python -m harness.judge run --dry-run
+   python -m harness.judge run --limit 5
+   python -m harness.judge run
+   ```
+6. **Check the judge against the human ratings:**
+   ```
+   python -m harness.judge report
+   ```
+   Both `report` and `python -m harness.ratings summary` take `--sheet` to read another sheet with the same rows. For example, to reproduce the pilot figures below from the archived rubric-v1 ratings:
+   ```
+   python -m harness.judge report --sheet harness/labels/sheet_v1.csv
+   ```
+   The report covers every judge results file, and each file's name records its rubric version (`_v1`, `_v2`). Compare each sheet only with the judge files of the same rubric version.
+7. **Change the recommendation logic** in `pipeline.py`, then run step 1 again. The comparison table shows which metrics moved and in which direction.
 
 ## Findings so far
 
@@ -146,7 +184,41 @@ Baseline (33 cases): `mood_fit` 0.77, `fill` 0.93, `artists` 0.99, no duplicates
 - **The API under-delivers silently.** Asking for 5 similar tracks returns 3–4, and some tracks aren't in the catalogue at all. `fill` makes this visible.
 - **Some failures don't affect any metric yet.** Off-genre picks, such as reggaeton for The Killers seeds, aren't caught by any automated score. That's what `seed_fit` and the LLM judge are for.
 
+### Judge pilot (44 human-rated rows, one rater, quick ratings)
+
+| | Haiku 5.5 | Opus 5.5 |
+|---|---|---|
+| Cost, 105 rows | $0.03 | $1.03 |
+| Tracks not known | 58 / 105 | 49 / 105 |
+| Controls vs sampled, judge `mood_fit` | 1.80 vs 3.02 | 1.50 vs 3.02 |
+| `mood_fit` vs human: ρ / κ / bias | 0.17 / 0.04 / −1.82 | 0.30 / 0.07 / −1.81 |
+| `seed_fit` vs human: ρ / κ / bias | 0.14 / 0.03 / −1.91 | 0.18 / 0.06 / −1.74 |
+
+- **Neither judge can stand in for the human ratings yet:** agreement is close to chance for both.
+- **A stronger model helped only a little.** Opus knew more tracks and separated the controls better, but kept the same ~1.8-point gap. So the problem is the scale, not the model.
+- **The human ratings have problems too.** 65% of `mood_fit` scores were 5, and the 2 controls averaged 4.0, so quick ratings barely used the bottom of the scale. The judges put most `seed_fit` scores at 2.
+### Rubric v2: anchored scale
+
+The rubric now gives example tracks for 1, 3 and 5 on each dimension, and guidance on using the whole scale. None of the anchor tracks or artists appear on the sheet, and the seed-fit anchors use a made-up rock seed set, so the examples don't leak answers. The v1 ratings are archived in `harness/labels/sheet_v1.csv`, and judge results are versioned (`_v1` / `_v2`), so the two rubric versions are never mixed.
+
+Opus 5.5 on rubric v2 ($1.25 for 105 rows):
+
+| | Rubric v1 | Rubric v2 |
+|---|---|---|
+| Tracks not known | 49 | 46 |
+| Controls vs sampled, `mood_fit` | 1.50 vs 3.02 | 1.33 vs 2.96 |
+| `seed_fit` scored 2 | 55 of 101 | 58 of 101 |
+| ρ with the v1 human ratings (`mood_fit` / `seed_fit`)* | 0.30 / 0.18 | 0.41 / 0.31 |
+
+\* Comparing the v2 judge with ratings made against v1 mixes rubric versions, so these figures are only indicative.
+
+- **The anchors barely moved the judge.** It ranks tracks slightly more like the human and separates the controls a little better, but its score levels hardly changed. Its harsh `seed_fit` may be correct: many picks are further from the seeds than the "3" anchor (Billie Jean for rock seeds).
+- **The anchors are mainly a fix for the human ratings,** which were the lenient side. The real test is re-rating the same 44 rows against rubric v2, then comparing the two. **Not done yet:** `sheet.csv` is blank, waiting for v2 ratings.
+- **If agreement is still low after that,** switch to pairwise comparisons, which don't depend on how each rater uses the scale.
+
 ## Next
 
-- An LLM judge as a second scorer, trusted only as far as it agrees with the human ratings.
+- Human ratings and a first judge pass, then report judge–human agreement on the test split.
+- Compare judges (Opus 5.5 vs Sonnet 5.5 vs Haiku 5.5, and effort levels) on agreement per dollar.
+- Bootstrap confidence intervals on run comparisons, and random/popular baselines to give `mood_fit` context.
 - Reusing human ratings across runs, keyed by mood, seed set and track, so regression runs report a human score with its coverage.
