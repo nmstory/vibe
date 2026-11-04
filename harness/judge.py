@@ -2,7 +2,7 @@
 far the judge can be trusted against the human ratings.
 
 Usage, from the project root (needs ANTHROPIC_API_KEY in .env or the environment):
-    python -m harness.judge run [--model claude-haiku-5-5] [--effort medium] [--attempts 1] [--limit N]
+    python -m harness.judge run [--model claude-opus-5-5] [--effort medium] [--attempts 1] [--limit N]
     python -m harness.judge run --dry-run      # print the prompt for one row; no API call
     python -m harness.judge report             # agreement with human ratings and other checks
 
@@ -30,7 +30,7 @@ from harness.ratings import (RATINGS_DIR, SAMPLE_PATH, DIMENSIONS, read_ratings,
 JUDGE_DIR = RATINGS_DIR / "judge"
 RUBRIC_PATH = RATINGS_DIR / "RUBRIC.md"
 
-DEFAULT_MODEL = "claude-haiku-5-5"
+DEFAULT_MODEL = "claude-opus-5-5"
 DEFAULT_EFFORT = "medium"
 PROMPT_VERSION = 1  # bump whenever the prompt below changes, so results stay comparable
 

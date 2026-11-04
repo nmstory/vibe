@@ -130,7 +130,7 @@ Human ratings are the most trustworthy scorer, but they don't scale: when the pi
 - **Same instrument as the human:** the judge gets the rubric's two dimensions and sees only what the rater sees (mood, seed tracks, track and artist), with no audio features or automated scores, so it can't simply echo the metric.
 - **Fixed output:** structured outputs constrain each reply to `{known_track, mood_fit, seed_fit, rationale}`, where scores are 1–5 or null.
 - **Abstains instead of guessing:** for a track it doesn't know, it leaves `mood_fit` empty rather than guessing from the title. How often it abstains is reported, because a judge that only scores well-known tracks has a blind spot.
-- **Model:** Claude Haiku 5.5 (`claude-haiku-5-5`) at effort `medium` by default. On the first 5 rows it gave seed-fit scores close to Opus 5.5 and Sonnet 5.5 at about 1/40th of Opus's cost, but it recognised fewer tracks (it abstained on 3 of 5, against 2 for Opus). `--model` and `--effort` select others (e.g. `claude-opus-5-5`, `claude-sonnet-5-5`, effort `low`); for Opus and Sonnet the API's server-side refusal fallback is enabled, which Haiku doesn't support. Each configuration's results are kept separately, so judges can be compared on agreement, coverage and cost once human ratings exist.
+- **Model:** Claude Opus 5.5 (`claude-opus-5-5`) at effort `medium` by default, with the API's server-side refusal fallback enabled. `--model` and `--effort` select others (e.g. `claude-haiku-5-5`, `claude-sonnet-5-5`, effort `low`); Haiku doesn't support the fallback, so it's left off there. Each configuration's results are kept separately, so judges can be compared on agreement, coverage and cost.
 - **Versioned and cached:** results are saved in `harness/labels/judge/<model>_<effort>_v<prompt version>.json` after every call. Re-running only judges rows that aren't done yet, and changing the prompt without bumping `PROMPT_VERSION` is refused, so old and new results are never mixed.
 
 `python -m harness.judge report` measures whether the judge can be trusted:
@@ -178,6 +178,21 @@ Baseline (33 cases): `mood_fit` 0.77, `fill` 0.93, `artists` 0.99, no duplicates
 - **The `mood_fit` scale is compressed.** An unrelated track still scores around 0.6, so the score needs a random-track baseline before 0.77 means much.
 - **The API under-delivers silently.** Asking for 5 similar tracks returns 3–4, and some tracks aren't in the catalogue at all. `fill` makes this visible.
 - **Some failures don't affect any metric yet.** Off-genre picks, such as reggaeton for The Killers seeds, aren't caught by any automated score. That's what `seed_fit` and the LLM judge are for.
+
+### Judge pilot (44 human-rated rows, one rater, quick ratings)
+
+| | Haiku 5.5 | Opus 5.5 |
+|---|---|---|
+| Cost, 105 rows | $0.03 | $1.03 |
+| Tracks not known | 58 / 105 | 49 / 105 |
+| Controls vs sampled, judge `mood_fit` | 1.80 vs 3.02 | 1.50 vs 3.02 |
+| `mood_fit` vs human: ρ / κ / bias | 0.17 / 0.04 / −1.82 | 0.30 / 0.07 / −1.81 |
+| `seed_fit` vs human: ρ / κ / bias | 0.14 / 0.03 / −1.91 | 0.18 / 0.06 / −1.74 |
+
+- **Neither judge can stand in for the human ratings yet:** agreement is close to chance for both.
+- **A stronger model helped only a little.** Opus knew more tracks and separated the controls better, but kept the same ~1.8-point gap. So the problem is the scale, not the model.
+- **The human ratings have problems too.** 65% of `mood_fit` scores were 5, and the 2 controls averaged 4.0, so quick ratings barely used the bottom of the scale. The judges put most `seed_fit` scores at 2.
+- **Next:** anchor the rubric with example tracks for 1, 3 and 5, or switch to pairwise comparisons, which don't depend on how a rater uses the scale. Rate only tracks you know, and use a larger sample.
 
 ## Next
 
