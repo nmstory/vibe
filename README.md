@@ -90,8 +90,14 @@ harness/testset.json ──► pipeline.generate_playlist_tracks(mood, seeds)   
 
 - **Pipeline:** `pipeline.py` holds playlist generation with no session or request dependency, so the harness calls it directly. It uses [ReccoBeats](https://reccobeats.com/docs/documentation/introduction) for similar tracks and audio features, and ranks mood recommendations by distance to a valence/energy target.
 - **Test set:** `harness/testset.json` has 11 moods × 3 seed sets (upbeat pop/rock, mellow acoustic, hip-hop) = 33 cases. One mood, "jubilant", is deliberately unknown to the pipeline, to exercise its fallback. Mood targets here are the scoring yardstick and are kept separate from the pipeline's own, so tuning the pipeline can't move the goalposts.
-- **Cache:** ReccoBeats returns different results on every call. `harness/cache.py` stores every response, including failures, in `harness/cache/`, so the first run fixes the sample and later runs replay it exactly. Delete the folder to draw a fresh sample.
-- **Regression runs:** every run is saved and compared with the previous one, with each metric marked better, worse or changed.
+- **Cache:** ReccoBeats returns different results on every call. `harness/cache.py` stores every response, including failures, in `harness/cache/`, so the first run fixes the sample and later runs replay it exactly. To draw a fresh sample, point `--cache-dir` at an empty folder, or delete the default one.
+- **Regression runs:** every run is saved and compared with the previous run on the same cache, i.e. the same API sample, so a difference comes from the code, not the sampling. Cases are paired by (seed set, mood), and the mean per-case change gets a bootstrap 95% CI. A metric is marked better, WORSE, or changed (for metrics with no better direction) only when that CI excludes 0; otherwise it's "no clear change". If the two runs' test set versions or cases differ, the comparison warns and falls back to an unpaired bootstrap.
+- **Uncertainty:** each overall mean is shown with a bootstrap 95% CI (2,000 resamples of the cases, fixed seed, so output is reproducible; `harness/stats.py`, standard library only). The CIs are also saved in the run's `summary.overall_ci`.
+- **Baselines:** `harness/baselines.py` holds two reference systems with the pipeline's own interface, `generate(mood, seed_tracks)`, so they're scored by exactly the same metrics. Both draw from a **candidate pool**: every track in the run's recommendation responses (the similar tracks plus the full 100-candidate mood pools), recovered from the cache.
+  - **random:** for each case, as many tracks as the pipeline generated, sampled uniformly from the pool without replacement (fixed seed).
+  - **popular:** the pool's most popular tracks by ReccoBeats `popularity` (0–100), ignoring mood and seeds: "just play the hits". The pipeline drops this field; the baseline reads it from the cached responses, where every one of the 2,724 items carries it as an integer, with no track ever given two different values.
+
+  Baseline results are saved under the run's `baselines` key, separate from `summary` and `cases`, so a baseline is never taken as the previous run.
 
 ## Metrics
 
@@ -148,7 +154,16 @@ From the project root, with the virtual environment set up (on Windows, use `.ve
    ```
    python -m harness.run
    ```
-   Add `--cases` for the per-case table, `--offline` to fail rather than call the API on a cache miss, or `--baseline harness/runs/<file>.json` to compare with a specific run.
+   Options:
+   - `--cases` prints the per-case table.
+   - `--offline` fails on a cache miss rather than calling the API.
+   - `--baseline harness/runs/<file>.json` compares with a specific run.
+   - `--baselines` also scores the random and popular baselines. It prints one row per system with each metric's CI, each system's paired lift over random, and `mood_fit` by mood. The first time, it fetches audio features for the candidate pool (about 30 calls); after that it works with `--offline`.
+   - `--cache-dir <dir>` uses another response cache (default `harness/cache/`).
+   **To check the noise floor (A/A test)** after changing how the harness samples or scores, draw a fresh API sample with the same code, and compare it with an existing run. Any metric marked as changed here is flagging sampling noise, not a code change.
+   ```
+   python -m harness.run --cache-dir harness/cache_aa --baseline harness/runs/<run on harness/cache>.json
+   ```
 2. **Build a rating sheet** from the latest run. It won't overwrite a sheet that may already hold ratings without `--force`.
    ```
    python -m harness.ratings sample
@@ -173,14 +188,52 @@ From the project root, with the virtual environment set up (on Windows, use `.ve
    python -m harness.judge report --sheet harness/labels/sheet_v1.csv
    ```
    The report covers every judge results file, and each file's name records its rubric version (`_v1`, `_v2`). Compare each sheet only with the judge files of the same rubric version.
-7. **Change the recommendation logic** in `pipeline.py`, then run step 1 again. The comparison table shows which metrics moved and in which direction.
+7. **Change the recommendation logic** in `pipeline.py`, then run step 1 again. The comparison table shows which metrics moved, in which direction, and whether the change is clear of the noise.
+8. **Run the unit tests** (bootstrap, paired comparison, verdicts, baselines):
+   ```
+   python -m unittest discover -s harness/tests -t .
+   ```
 
 ## Findings so far
 
-Baseline (33 cases): `mood_fit` 0.77, `fill` 0.93, `artists` 0.99, no duplicates, no errors.
+Baseline (33 cases): `mood_fit` 0.77 [0.74, 0.80], `fill` 0.93 [0.90, 0.95], `artists` 0.99 [0.99, 1.00], no duplicates, no errors.
 
 - **Mood barely changes the playlist.** `mood_fit` only ranges 0.71–0.82 across moods. About 60% of each playlist is similar-to-seed tracks, which ignore mood and are the same for every mood. Dropping them raised `mood_fit` from 0.77 to 0.87.
-- **The `mood_fit` scale is compressed.** An unrelated track still scores around 0.6, so the score needs a random-track baseline before 0.77 means much.
+- **The `mood_fit` scale is compressed.** An unrelated track still scores around 0.6, and a random track from the candidate pool scores 0.70 (see below). So 0.77 is a lift of only about 0.08 over chance.
+- **The API under-delivers silently.** Asking for 5 similar tracks returns 3–4, and some tracks aren't in the catalogue at all. `fill` makes this visible.
+- **Some failures don't affect any metric yet.** Off-genre picks, such as reggaeton for The Killers seeds, aren't caught by any automated score. That's what `seed_fit` and the LLM judge are for.
+
+### Baselines: pipeline vs random vs popular
+
+Same 33 cases, same metrics, 1,151-track candidate pool. Lift is the paired mean difference from random, with its 95% CI:
+
+| | `mood_fit` | lift over random | `artists` | lift over random | `seed_art` |
+|---|---|---|---|---|---|
+| pipeline | 0.77 [0.74, 0.80] | **+0.08 [+0.05, +0.10]** | 0.99 [0.99, 1.00] | +0.00 [−0.01, +0.01] | 0.02 |
+| random | 0.70 [0.68, 0.71] | – | 0.99 [0.98, 0.99] | – | 0.00 |
+| popular | 0.71 [0.69, 0.73] | +0.02 [−0.00, +0.03] | 0.96 [0.96, 0.96] | **−0.03 [−0.04, −0.02]** | 0.05 |
+
+- **The pipeline clearly beats random on mood**, but by only 0.08, because ~60% of each playlist ignores mood. The mood-ranked tracks carry the whole lift.
+- **Random scores 0.70, not ~0.6.** The pool isn't random music: it comes from the seeds' neighbourhood plus mood-steered requests, so it already sits near the middle of the valence/energy space. 0.70 is the honest floor for this metric.
+- **"Just play the hits" does no better than random on mood** (its CI touches 0) and has the lowest artist diversity, since the top of the pool repeats some artists (Playboi Carti twice in the top 21). Its `mood_fit` still varies by mood (0.64–0.80) even though its tracks never change. That variation is the target moving, not the playlist.
+- **`mood_fit` favours mid-range targets.** Popular nearly matches the pipeline on nostalgic (0.79 vs 0.82) and focused (0.78 vs 0.80), whose targets sit near the centre, and loses clearly on happy and excited (0.66 vs 0.78; 0.64 vs 0.76). The pipeline's real advantage is on the extreme moods.
+- **Seed duplicates under another URI slip through `seed`.** Popular includes a different release of "Mr. Brightside", which is a seed, and so does one pipeline case. `seed_overlap` matches URIs, so it scores 0 for both.
+
+### A/A check: the noise floor
+
+A fresh API sample (an empty `--cache-dir`, same code), compared with the baseline run, paired by case:
+
+| Metric | Change [95% CI] | Verdict |
+|---|---|---|
+| `generated` | +0.3 [−0.5, +1.2] | no clear change |
+| `fill` | +0.01 [−0.02, +0.05] | no clear change |
+| `artists` | +0.00 [−0.00, +0.01] | no clear change |
+| `mood_fit` | −0.00 [−0.01, +0.00] | no clear change |
+| `seed_art` | −0.02 [−0.02, −0.01] | **changed** (a false alarm) |
+| `feat`, `err`, `dup`, `seed` | 0 in both samples | no clear change |
+
+- **8 of 9 metrics pass.** The noise floor on `mood_fit` is about ±0.005 between samples, so a pipeline change worth 0.01 is detectable. `fill` needs a change of about 0.035, and `generated` about 1 track.
+- **The `seed_art` false alarm comes from cases that aren't independent.** The pipeline asks for each seed's similar tracks once, and all 11 moods of that seed set share the response, through the cache and in a live run alike. In the old sample, one Drake track in a hip-hop similar-tracks response appeared in all 11 hip-hop cases, and the bootstrap counted it as 11 independent observations. The effective sample size for anything driven by similar tracks is closer to 9 seeds than 33 cases, so **CIs on `seed_art`, `artists` and `fill` are too narrow.** `mood_fit` is less affected, because the mood pool is fetched per case. With 3 seed sets, clustering the bootstrap by seed set isn't usable; the fix is more seed sets.
 - **The API under-delivers silently.** Asking for 5 similar tracks returns 3–4, and some tracks aren't in the catalogue at all. `fill` makes this visible.
 - **Some failures don't affect any metric yet.** Off-genre picks, such as reggaeton for The Killers seeds, aren't caught by any automated score. That's what `seed_fit` and the LLM judge are for.
 
@@ -220,5 +273,6 @@ Opus 5.5 on rubric v2 ($1.25 for 105 rows):
 
 - Human ratings and a first judge pass, then report judge–human agreement on the test split.
 - Compare judges (Opus 5.5 vs Sonnet 5.5 vs Haiku 5.5, and effort levels) on agreement per dollar.
-- Bootstrap confidence intervals on run comparisons, and random/popular baselines to give `mood_fit` context.
+- More seed sets, so the bootstrap can be clustered by seed set and the similar-track metrics get honest CIs.
+- A per-case random baseline (only the pipeline's own candidates for that case, unranked), to isolate what the mood ranking adds.
 - Reusing human ratings across runs, keyed by mood, seed set and track, so regression runs report a human score with its coverage.
