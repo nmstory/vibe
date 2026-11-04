@@ -189,17 +189,24 @@ From the project root, with the virtual environment set up (on Windows, use `.ve
    ```
    The report covers every judge results file, and each file's name records its rubric version (`_v1`, `_v2`). Compare each sheet only with the judge files of the same rubric version.
 7. **Change the recommendation logic** in `pipeline.py`, then run step 1 again. The comparison table shows which metrics moved, in which direction, and whether the change is clear of the noise.
-8. **Run the unit tests** (bootstrap, paired comparison, verdicts, baselines):
+8. **Run the unit tests.** They need no API keys, make no network or API calls, and leave the real sheet, labels and judge results untouched:
    ```
    python -m unittest discover -s harness/tests -t .
    ```
+   They cover:
+   - **metrics:** seed exclusion, every metric's arithmetic, and undefined values in means;
+   - **pipeline:** track order, catalogue misses, mood ranking and its fallbacks, against a fake ReccoBeats;
+   - **stats:** bootstrap CIs, paired comparison and the "no clear change" verdict;
+   - **baselines:** determinism, track counts and seed placement;
+   - **ratings:** sheet validation, Spearman, and refusing to overwrite a sheet;
+   - **judge:** request shape, blindness, resuming, refusals, the prompt-version guard, the tune/test split, weighted κ, and the report, against a fake Anthropic client.
 
 ## Findings so far
 
 Baseline (33 cases): `mood_fit` 0.77 [0.74, 0.80], `fill` 0.93 [0.90, 0.95], `artists` 0.99 [0.99, 1.00], no duplicates, no errors.
 
 - **Mood barely changes the playlist.** `mood_fit` only ranges 0.71–0.82 across moods. About 60% of each playlist is similar-to-seed tracks, which ignore mood and are the same for every mood. Dropping them raised `mood_fit` from 0.77 to 0.87.
-- **The `mood_fit` scale is compressed.** An unrelated track still scores around 0.6, and a random track from the candidate pool scores 0.70 (see below). So 0.77 is a lift of only about 0.08 over chance.
+- **The `mood_fit` scale is compressed.** An unrelated track still scores around 0.6, and a random track from the candidate pool scores 0.69 (see below). So 0.77 is a lift of only about 0.08 over chance.
 - **The API under-delivers silently.** Asking for 5 similar tracks returns 3–4, and some tracks aren't in the catalogue at all. `fill` makes this visible.
 - **Some failures don't affect any metric yet.** Off-genre picks, such as reggaeton for The Killers seeds, aren't caught by any automated score. That's what `seed_fit` and the LLM judge are for.
 
@@ -210,11 +217,11 @@ Same 33 cases, same metrics, 1,151-track candidate pool. Lift is the paired mean
 | | `mood_fit` | lift over random | `artists` | lift over random | `seed_art` |
 |---|---|---|---|---|---|
 | pipeline | 0.77 [0.74, 0.80] | **+0.08 [+0.05, +0.10]** | 0.99 [0.99, 1.00] | +0.00 [−0.01, +0.01] | 0.02 |
-| random | 0.70 [0.68, 0.71] | – | 0.99 [0.98, 0.99] | – | 0.00 |
+| random | 0.69 [0.68, 0.71] | – | 0.99 [0.98, 0.99] | – | 0.00 |
 | popular | 0.71 [0.69, 0.73] | +0.02 [−0.00, +0.03] | 0.96 [0.96, 0.96] | **−0.03 [−0.04, −0.02]** | 0.05 |
 
 - **The pipeline clearly beats random on mood**, but by only 0.08, because ~60% of each playlist ignores mood. The mood-ranked tracks carry the whole lift.
-- **Random scores 0.70, not ~0.6.** The pool isn't random music: it comes from the seeds' neighbourhood plus mood-steered requests, so it already sits near the middle of the valence/energy space. 0.70 is the honest floor for this metric.
+- **Random scores 0.69, not ~0.6.** The pool isn't random music: it comes from the seeds' neighbourhood plus mood-steered requests, so it already sits near the middle of the valence/energy space. 0.69 is the honest floor for this metric.
 - **"Just play the hits" does no better than random on mood** (its CI touches 0) and has the lowest artist diversity, since the top of the pool repeats some artists (Playboi Carti twice in the top 21). Its `mood_fit` still varies by mood (0.64–0.80) even though its tracks never change. That variation is the target moving, not the playlist.
 - **`mood_fit` favours mid-range targets.** Popular nearly matches the pipeline on nostalgic (0.79 vs 0.82) and focused (0.78 vs 0.80), whose targets sit near the centre, and loses clearly on happy and excited (0.66 vs 0.78; 0.64 vs 0.76). The pipeline's real advantage is on the extreme moods.
 - **Seed duplicates under another URI slip through `seed`.** Popular includes a different release of "Mr. Brightside", which is a seed, and so does one pipeline case. `seed_overlap` matches URIs, so it scores 0 for both.
@@ -234,8 +241,6 @@ A fresh API sample (an empty `--cache-dir`, same code), compared with the baseli
 
 - **8 of 9 metrics pass.** The noise floor on `mood_fit` is about ±0.005 between samples, so a pipeline change worth 0.01 is detectable. `fill` needs a change of about 0.035, and `generated` about 1 track.
 - **The `seed_art` false alarm comes from cases that aren't independent.** The pipeline asks for each seed's similar tracks once, and all 11 moods of that seed set share the response, through the cache and in a live run alike. In the old sample, one Drake track in a hip-hop similar-tracks response appeared in all 11 hip-hop cases, and the bootstrap counted it as 11 independent observations. The effective sample size for anything driven by similar tracks is closer to 9 seeds than 33 cases, so **CIs on `seed_art`, `artists` and `fill` are too narrow.** `mood_fit` is less affected, because the mood pool is fetched per case. With 3 seed sets, clustering the bootstrap by seed set isn't usable; the fix is more seed sets.
-- **The API under-delivers silently.** Asking for 5 similar tracks returns 3–4, and some tracks aren't in the catalogue at all. `fill` makes this visible.
-- **Some failures don't affect any metric yet.** Off-genre picks, such as reggaeton for The Killers seeds, aren't caught by any automated score. That's what `seed_fit` and the LLM judge are for.
 
 ### Judge pilot (44 human-rated rows, one rater, quick ratings)
 
@@ -250,6 +255,7 @@ A fresh API sample (an empty `--cache-dir`, same code), compared with the baseli
 - **Neither judge can stand in for the human ratings yet:** agreement is close to chance for both.
 - **A stronger model helped only a little.** Opus knew more tracks and separated the controls better, but kept the same ~1.8-point gap. So the problem is the scale, not the model.
 - **The human ratings have problems too.** 65% of `mood_fit` scores were 5, and the 2 controls averaged 4.0, so quick ratings barely used the bottom of the scale. The judges put most `seed_fit` scores at 2.
+
 ### Rubric v2: anchored scale
 
 The rubric now gives example tracks for 1, 3 and 5 on each dimension, and guidance on using the whole scale. None of the anchor tracks or artists appear on the sheet, and the seed-fit anchors use a made-up rock seed set, so the examples don't leak answers. The v1 ratings are archived in `harness/labels/sheet_v1.csv`, and judge results are versioned (`_v1` / `_v2`), so the two rubric versions are never mixed.
@@ -271,7 +277,8 @@ Opus 5.5 on rubric v2 ($1.25 for 105 rows):
 
 ## Next
 
-- Human ratings and a first judge pass, then report judge–human agreement on the test split.
+- Re-rate the 44 pilot rows against rubric v2, then compare the human v1 vs v2 ratings and judge–human agreement on the test split. If agreement is still low, switch to pairwise comparisons.
+- A second rater, so agreement between people can be measured, not just one rater's consistency with themself.
 - Compare judges (Opus 5.5 vs Sonnet 5.5 vs Haiku 5.5, and effort levels) on agreement per dollar.
 - More seed sets, so the bootstrap can be clustered by seed set and the similar-track metrics get honest CIs.
 - A per-case random baseline (only the pipeline's own candidates for that case, unranked), to isolate what the mood ranking adds.
