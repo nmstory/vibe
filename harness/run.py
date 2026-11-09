@@ -41,6 +41,7 @@ COLUMNS = {
     'seed_overlap': 'seed',
     'seed_artist_share': 'seed_art',
     'mood_fit': 'mood_fit',
+    'duration_fit': 'dur_fit',
 }
 
 # Metrics left out of the baseline table: equal to the pipeline's by

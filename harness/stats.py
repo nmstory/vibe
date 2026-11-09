@@ -78,7 +78,7 @@ def paired_diffs(pairs, name):
     return [
         a['scores'][name] - b['scores'][name]
         for b, a in pairs
-        if a['scores'][name] is not None and b['scores'][name] is not None
+        if a['scores'].get(name) is not None and b['scores'].get(name) is not None
     ]
 
 
@@ -107,7 +107,7 @@ def compare_runs(before_cases, after_cases, paired=True):
     rows = {}
 
     for name, (_, better) in METRICS.items():
-        before = [c['scores'][name] for c in before_cases if c['scores'][name] is not None]
+        before = [c['scores'].get(name) for c in before_cases if c['scores'].get(name) is not None]
         after = [c['scores'][name] for c in after_cases if c['scores'][name] is not None]
         if not before or not after:
             continue

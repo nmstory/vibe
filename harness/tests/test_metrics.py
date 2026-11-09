@@ -1,7 +1,7 @@
 import math
 import unittest
 
-from harness.metrics import generated_tracks, mean_scores, score_case
+from harness.metrics import duration_fit, generated_tracks, mean_scores, score_case
 
 
 def track(uri, artist):
@@ -53,6 +53,35 @@ class ScoreCaseTest(unittest.TestCase):
         self.assertEqual(empty['fill_rate'], 0.0)
         self.assertIsNone(empty['duplicate_rate'])
         self.assertIsNone(empty['error_rate'])
+
+
+class DurationFitTest(unittest.TestCase):
+    def tracks(self, *minutes):
+        return [{'uri': str(i), 'duration_ms': m * 60_000} for i, m in enumerate(minutes)]
+
+    def test_exact_fit_is_one(self):
+        self.assertAlmostEqual(duration_fit(self.tracks(10, 10), 20), 1.0)
+
+    def test_half_and_double_score_the_same(self):
+        self.assertAlmostEqual(duration_fit(self.tracks(10), 20), 0.5)
+        self.assertAlmostEqual(duration_fit(self.tracks(20, 20), 20), 0.5)
+
+    def test_undefined_without_a_journey_or_a_length(self):
+        self.assertIsNone(duration_fit(self.tracks(10), None))
+        self.assertIsNone(duration_fit([], 20))
+        self.assertIsNone(duration_fit(self.tracks(10) + [{'uri': 'x'}], 20))
+
+    def test_score_case_measures_whole_playlist_and_skips_fill_rate(self):
+        case = {'seeds': [{'uri': 'S', 'artist': 'a', 'duration_ms': 600_000}],
+                'tracks': [{'uri': 'S', 'artist': 'a', 'duration_ms': 600_000},
+                           {'uri': 'T', 'artist': 'b', 'duration_ms': 600_000}],
+                'calls': [], 'journey_minutes': 20}
+        scores = score_case(case, {}, None, requested=None)
+        self.assertAlmostEqual(scores['duration_fit'], 1.0)  # the seed's 10 minutes count
+        self.assertIsNone(scores['fill_rate'])
+
+    def test_full_length_case_has_no_duration_fit(self):
+        self.assertIsNone(score_case(CASE, FEATURES, TARGET, requested=20)['duration_fit'])
 
 
 class MeanScoresTest(unittest.TestCase):
