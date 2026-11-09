@@ -3,7 +3,8 @@
 Uses the ReccoBeats API (no key needed), which works in Spotify track IDs, so
 it can be called directly (e.g. by an evaluation harness) without a user session.
 
-A track is a dict: {'uri': str, 'name': str, 'artist': str}
+A track is a dict: {'uri': str, 'name': str, 'artist': str, 'duration_ms': int}
+(duration_ms may be missing on seeds from elsewhere; DEFAULT_TRACK_MS stands in)
 """
 import math
 import requests
@@ -18,6 +19,12 @@ MAX_AUDIO_FEATURE_IDS = 40
 # Playlist shape
 SIMILAR_PER_SEED = 5
 MOOD_TRACKS = 10
+
+# Fitting a playlist to a journey: the mood tracks get this share of the
+# journey, the seed blocks the rest, and more mood tracks top it up if the
+# seeds run out
+MOOD_SHARE = 0.25
+DEFAULT_TRACK_MS = 210_000  # 3.5 minutes, for a track with no known length
 
 # Target audio features per mood, on Spotify's 0-1 scales.
 # valence: how positive a track sounds, energy: how intense it feels
@@ -35,24 +42,63 @@ MOOD_TARGETS = {
 }
 
 
-def generate_playlist_tracks(mood, seed_tracks):
+def generate_playlist_tracks(mood, seed_tracks, journey_minutes=None):
     """Build the track list for a playlist.
 
     mood: mood string, e.g. "happy" (see MOOD_TARGETS)
-    seed_tracks: list of track dicts (normally the user's top tracks)
+    seed_tracks: list of track dicts (normally the user's top tracks, best first)
+    journey_minutes: length of the journey, or None for the full playlist
 
     Returns a list of track dicts: each seed followed by its similar tracks,
-    then the mood recommendations.
+    then the mood recommendations. With journey_minutes, the playlist is cut
+    to the journey: it stops at the first track that takes it past the
+    journey's length, so the music doesn't run out before arrival.
     """
-    track_list = []
+    if journey_minutes is None:
+        track_list = []
+        for track in seed_tracks:
+            track_list.append(track)
+            track_list.extend(get_similar_tracks(track))
+        return track_list + recommendations_from_mood(mood, seed_tracks)
 
+    target_ms = journey_minutes * 60_000
+
+    # The whole ranked pool comes from one API call either way, so take all of
+    # it and use as many as the journey needs
+    mood_pool = recommendations_from_mood(mood, seed_tracks, limit=MAX_RECOMMENDATIONS)
+    mood_tracks = take_until(mood_pool, target_ms * MOOD_SHARE)
+
+    # Seed blocks in rank order, so only the seeds the journey needs cost a call
+    seed_part = []
     for track in seed_tracks:
-        track_list.append(track)
-        track_list.extend(get_similar_tracks(track))
+        if playlist_ms(seed_part) + playlist_ms(mood_tracks) >= target_ms:
+            break
+        seed_part.extend([track] + get_similar_tracks(track))
+    seed_part = take_until(seed_part, target_ms - playlist_ms(mood_tracks))
 
-    track_list.extend(recommendations_from_mood(mood, seed_tracks))
+    # Seeds ran out: top up with the next-best mood tracks
+    mood_tracks = take_until(mood_pool, target_ms - playlist_ms(seed_part))
 
-    return track_list
+    return seed_part + mood_tracks
+
+
+def track_ms(track):
+    return track.get('duration_ms') or DEFAULT_TRACK_MS
+
+
+def playlist_ms(tracks):
+    return sum(track_ms(track) for track in tracks)
+
+
+def take_until(tracks, budget_ms):
+    # The shortest prefix of tracks whose length reaches budget_ms (or all of them)
+    taken, total = [], 0
+    for track in tracks:
+        if total >= budget_ms:
+            break
+        taken.append(track)
+        total += track_ms(track)
+    return taken
 
 
 def spotify_id(uri):
@@ -64,7 +110,8 @@ def to_track(reccobeats_track):
     return {
         'uri': f"spotify:track:{reccobeats_track['href'].rsplit('/', 1)[-1]}",
         'name': reccobeats_track['trackTitle'],
-        'artist': reccobeats_track['artists'][0]['name']
+        'artist': reccobeats_track['artists'][0]['name'],
+        'duration_ms': reccobeats_track.get('durationMs')
     }
 
 

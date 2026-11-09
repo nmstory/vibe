@@ -12,9 +12,12 @@ def response(status, data=None, text=""):
     return r
 
 
+TRACK_MS = 200_000  # every fake ReccoBeats track lasts 3m20s
+
+
 def reccobeats_track(spotify_id, title, artist):
     return {'id': f"uuid-{spotify_id}", 'trackTitle': title, 'artists': [{'name': artist}],
-            'href': f"https://open.spotify.com/track/{spotify_id}"}
+            'durationMs': TRACK_MS, 'href': f"https://open.spotify.com/track/{spotify_id}"}
 
 
 # A fake catalogue: C0 = (0, 0) ... C20 = (1, 1) in valence/energy; C17 has no audio features
@@ -46,11 +49,13 @@ SEEDS = [{'uri': 'spotify:track:SeedA', 'name': 'SeedA', 'artist': 'ArtistA'},
 
 
 class GeneratePlaylistTracksTest(unittest.TestCase):
-    def generate(self, mood, seeds):
+    def generate(self, mood, seeds, journey_minutes=None):
         # The pipeline prints API problems; keep test output clean
-        with mock.patch.object(pipeline.requests, 'get', side_effect=fake_get), \
+        with mock.patch.object(pipeline.requests, 'get', side_effect=fake_get) as get, \
                 contextlib.redirect_stdout(io.StringIO()):
-            return pipeline.generate_playlist_tracks(mood, seeds)
+            tracks = pipeline.generate_playlist_tracks(mood, seeds, journey_minutes)
+        self.calls = [call.kwargs['params'] for call in get.call_args_list]
+        return tracks
 
     def test_each_seed_is_followed_by_its_similar_tracks(self):
         tracks = self.generate('happy', SEEDS)
@@ -70,9 +75,10 @@ class GeneratePlaylistTracksTest(unittest.TestCase):
         self.assertEqual(set(names[2:4]), {'C14', 'C18'})
         self.assertNotIn('C17', names)  # no audio features, so can't be ranked
 
-    def test_tracks_have_uri_name_and_artist(self):
-        for t in self.generate('happy', SEEDS):
-            self.assertEqual(set(t), {'uri', 'name', 'artist'})
+    def test_tracks_have_uri_name_artist_and_length(self):
+        for t in self.generate('happy', SEEDS)[7:]:  # past the seed blocks: ReccoBeats tracks
+            self.assertEqual(set(t), {'uri', 'name', 'artist', 'duration_ms'})
+            self.assertEqual(t['duration_ms'], TRACK_MS)
 
     def test_no_seeds_gives_no_tracks(self):
         self.assertEqual(self.generate('happy', []), [])
@@ -81,6 +87,46 @@ class GeneratePlaylistTracksTest(unittest.TestCase):
         with mock.patch.object(pipeline.requests, 'get', side_effect=fake_get), \
                 contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(len(pipeline.recommendations_from_mood('jubilant', SEEDS)), pipeline.MOOD_TRACKS)
+
+
+
+class JourneyLengthTest(unittest.TestCase):
+    generate = GeneratePlaylistTracksTest.generate
+
+    def assert_covers_journey(self, tracks, journey_minutes):
+        # Long enough for the journey, and the last track is the one that gets it there
+        journey_ms = journey_minutes * 60_000
+        self.assertGreaterEqual(pipeline.playlist_ms(tracks), journey_ms)
+        self.assertLess(pipeline.playlist_ms(tracks[:-1]), journey_ms)
+
+    def test_short_journey_is_cut_to_length(self):
+        tracks = self.generate('happy', SEEDS, journey_minutes=20)
+        self.assert_covers_journey(tracks, 20)
+        # SeedA (no length, so the 3.5-minute default) with 3 of its similar
+        # tracks, then the 2 best mood tracks for a quarter of the journey
+        self.assertEqual([t['name'] for t in tracks],
+                         ['SeedA', 'SeedA sim 0', 'SeedA sim 1', 'SeedA sim 2', 'C16', 'C15'])
+
+    def test_only_seeds_the_journey_needs_are_looked_up(self):
+        self.generate('happy', SEEDS, journey_minutes=20)
+        similar_calls = [c for c in self.calls if 'seeds' in c and c['size'] == pipeline.SIMILAR_PER_SEED]
+        self.assertEqual([c['seeds'] for c in similar_calls], [['SeedA']])
+
+    def test_mood_tracks_top_up_when_seeds_run_out(self):
+        tracks = self.generate('happy', SEEDS, journey_minutes=60)
+        self.assert_covers_journey(tracks, 60)
+        self.assertEqual(tracks[:7], self.generate('happy', SEEDS)[:7])  # both seed blocks in full
+        mood_names = [t['name'] for t in tracks[7:]]
+        self.assertGreater(len(mood_names), pipeline.MOOD_TRACKS)
+        self.assertEqual(mood_names[:2], ['C16', 'C15'])  # still nearest first
+
+    def test_journey_longer_than_everything_available_uses_it_all(self):
+        tracks = self.generate('happy', SEEDS, journey_minutes=600)
+        # 7 seed-block tracks plus the 20 mood candidates with audio features
+        self.assertEqual(len(tracks), 7 + 20)
+
+    def test_no_seeds_gives_no_tracks(self):
+        self.assertEqual(self.generate('happy', [], journey_minutes=20), [])
 
 
 if __name__ == '__main__':
