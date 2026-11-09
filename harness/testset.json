@@ -1,6 +1,7 @@
 {
-  "version": 1,
-  "notes": "Fixed evaluation set. Mood targets here are the scoring yardstick and are deliberately independent of pipeline.MOOD_TARGETS, so tuning the pipeline can't move the goalposts. All seeds verified present in the ReccoBeats catalogue on 2026-11-03.",
+  "version": 2,
+  "notes": "Fixed evaluation set. Mood targets here are the scoring yardstick and are deliberately independent of pipeline.MOOD_TARGETS, so tuning the pipeline can't move the goalposts. All seeds verified present in the ReccoBeats catalogue on 2026-11-03. Seed duration_ms from ReccoBeats on 2026-11-09. Each seed set x mood runs once per journey; a null journey is the full-length playlist.",
+  "journeys": [null, 20, 60, 180],
   "moods": [
     {"mood": "happy",     "target": {"valence": 0.85, "energy": 0.75}},
     {"mood": "excited",   "target": {"valence": 0.80, "energy": 0.90}},
@@ -18,25 +19,25 @@
     {
       "name": "upbeat_pop_rock",
       "tracks": [
-        {"uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp", "name": "Mr. Brightside", "artist": "The Killers"},
-        {"uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b", "name": "Blinding Lights", "artist": "The Weeknd"},
-        {"uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3", "name": "Shape of You", "artist": "Ed Sheeran"}
+        {"uri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp", "name": "Mr. Brightside", "artist": "The Killers", "duration_ms": 222200},
+        {"uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b", "name": "Blinding Lights", "artist": "The Weeknd", "duration_ms": 200040},
+        {"uri": "spotify:track:7qiZfU4dY1lWllzX7mPBI3", "name": "Shape of You", "artist": "Ed Sheeran", "duration_ms": 233712}
       ]
     },
     {
       "name": "mellow_acoustic",
       "tracks": [
-        {"uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I", "name": "when the party's over", "artist": "Billie Eilish"},
-        {"uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM", "name": "Skinny Love", "artist": "Bon Iver"},
-        {"uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf", "name": "Someone You Loved", "artist": "Lewis Capaldi"}
+        {"uri": "spotify:track:43zdsphuZLzwA9k4DJhU0I", "name": "when the party's over", "artist": "Billie Eilish", "duration_ms": 196077},
+        {"uri": "spotify:track:3B3eOgLJSqPEA0RfboIQVM", "name": "Skinny Love", "artist": "Bon Iver", "duration_ms": 238520},
+        {"uri": "spotify:track:7qEHsqek33rTcFNT9PFqLf", "name": "Someone You Loved", "artist": "Lewis Capaldi", "duration_ms": 182160}
       ]
     },
     {
       "name": "hip_hop",
       "tracks": [
-        {"uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS", "name": "HUMBLE.", "artist": "Kendrick Lamar"},
-        {"uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn", "name": "God's Plan", "artist": "Drake"},
-        {"uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h", "name": "SICKO MODE", "artist": "Travis Scott"}
+        {"uri": "spotify:track:7KXjTSCq5nL1LoYtL7XAwS", "name": "HUMBLE.", "artist": "Kendrick Lamar", "duration_ms": 177000},
+        {"uri": "spotify:track:6DCZcSspjsKoFjzjrWoCdn", "name": "God's Plan", "artist": "Drake", "duration_ms": 198973},
+        {"uri": "spotify:track:2xLMifQCjDGFmkHkpNLD9h", "name": "SICKO MODE", "artist": "Travis Scott", "duration_ms": 312820}
       ]
     }
   ]

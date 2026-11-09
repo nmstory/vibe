@@ -2,7 +2,7 @@
 
 A score like mood_fit 0.77 means little on its own: an unrelated track still
 scores around 0.6. These baselines give it context. Each is built as a
-generate(mood, seed_tracks) function, the same interface as
+generate(mood, seed_tracks, journey_minutes) function, the same interface as
 pipeline.generate_playlist_tracks, so run.py runs and scores them unchanged.
 
 - random:  the same number of generated tracks as the pipeline produced for
@@ -51,11 +51,16 @@ def candidate_pool(cases, http):
     return [pool[uri] for uri in sorted(pool)]
 
 
+def count_key(mood, seed_tracks, journey_minutes):
+    return mood, tuple(seed['uri'] for seed in seed_tracks), journey_minutes
+
+
 def track_counts(cases):
-    """{(mood, seed uris): number of generated tracks} for the pipeline's run,
-    so each baseline case gets as many tracks as the pipeline produced."""
+    """{(mood, seed uris, journey): number of generated tracks} for the
+    pipeline's run, so each baseline case gets as many tracks as the pipeline
+    produced."""
     return {
-        (case['mood'], tuple(seed['uri'] for seed in case['seeds'])): len(generated_tracks(case))
+        count_key(case['mood'], case['seeds'], case.get('journey_minutes')): len(generated_tracks(case))
         for case in cases
     }
 
@@ -75,29 +80,32 @@ def with_seeds(seed_tracks, generated):
 
 
 def plain(track):
-    return {'uri': track['uri'], 'name': track['name'], 'artist': track['artist']}
+    # Drop popularity, keep what the pipeline's tracks carry
+    return {key: track[key] for key in ('uri', 'name', 'artist', 'duration_ms') if key in track}
 
 
 def random_baseline(pool, counts, seed=RNG_SEED):
-    """generate(mood, seed_tracks): a uniform sample from the pool, without
-    replacement, of the size the pipeline produced for that case."""
-    def generate(mood, seed_tracks):
-        seed_uris = tuple(t['uri'] for t in seed_tracks)
-        n = counts[(mood, seed_uris)]
+    """generate(mood, seed_tracks, journey_minutes): a uniform sample from the
+    pool, without replacement, of the size the pipeline produced for that case."""
+    def generate(mood, seed_tracks, journey_minutes=None):
+        key = count_key(mood, seed_tracks, journey_minutes)
+        n = counts[key]
         # Seeded per case, so a case's draw doesn't depend on the order cases run in
-        rng = random.Random(f"{seed}|{mood}|{'|'.join(seed_uris)}")
+        # (full-length cases keep the seed string they had before journeys existed)
+        journey = '' if journey_minutes is None else f"|{journey_minutes}"
+        rng = random.Random(f"{seed}|{mood}|{'|'.join(key[1])}{journey}")
         return with_seeds(seed_tracks, [plain(t) for t in rng.sample(pool, n)])
 
     return generate
 
 
 def popular_baseline(pool, counts):
-    """generate(mood, seed_tracks): the n most popular tracks in the pool,
-    ties broken by uri. Mood and seeds don't change the picks."""
+    """generate(mood, seed_tracks, journey_minutes): the n most popular tracks
+    in the pool, ties broken by uri. Mood and seeds don't change the picks."""
     by_popularity = sorted(pool, key=lambda t: (-t['popularity'], t['uri']))
 
-    def generate(mood, seed_tracks):
-        n = counts[(mood, tuple(t['uri'] for t in seed_tracks))]
+    def generate(mood, seed_tracks, journey_minutes=None):
+        n = counts[count_key(mood, seed_tracks, journey_minutes)]
         return with_seeds(seed_tracks, [plain(t) for t in by_popularity[:n]])
 
     return generate

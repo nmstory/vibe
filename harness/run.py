@@ -9,7 +9,7 @@ Usage, from the project root:
     python -m harness.run --cache-dir <dir>    # use another cache, e.g. empty for a fresh sample
 
 Each run is compared against the previous saved run that used the same cache
-(or --baseline). Cases are paired by (seed set, mood) and the change in each
+(or --baseline). Cases are paired by (seed set, mood, journey) and the change in each
 metric gets a bootstrap 95% CI; a metric is only marked better or worse when
 that CI excludes 0.
 """
@@ -54,24 +54,26 @@ def load_testset(path=TESTSET_PATH):
 
 
 def run_testset(testset, http, generate=pipeline.generate_playlist_tracks):
-    # generate(mood, seed_tracks) -> tracks: the pipeline, or a baseline
+    # generate(mood, seed_tracks, journey_minutes) -> tracks: the pipeline, or a baseline
     cases = []
 
     for seed_set in testset['seed_sets']:
         for mood in testset['moods']:
-            first_call = len(http.calls)
-            start = time.perf_counter()
+            for journey_minutes in testset.get('journeys', [None]):
+                first_call = len(http.calls)
+                start = time.perf_counter()
 
-            tracks = generate(mood['mood'], seed_set['tracks'])
+                tracks = generate(mood['mood'], seed_set['tracks'], journey_minutes)
 
-            cases.append({
-                'seed_set': seed_set['name'],
-                'mood': mood['mood'],
-                'seeds': seed_set['tracks'],
-                'tracks': tracks,
-                'calls': http.calls[first_call:],
-                'seconds': round(time.perf_counter() - start, 3)
-            })
+                cases.append({
+                    'seed_set': seed_set['name'],
+                    'mood': mood['mood'],
+                    'journey_minutes': journey_minutes,
+                    'seeds': seed_set['tracks'],
+                    'tracks': tracks,
+                    'calls': http.calls[first_call:],
+                    'seconds': round(time.perf_counter() - start, 3)
+                })
 
     return cases
 
@@ -90,15 +92,23 @@ def score_cases(testset, cases, features=None):
         features = fetch_features([t for case in cases for t in generated_tracks(case)])
 
     for case in cases:
-        requested = len(case['seeds']) * pipeline.SIMILAR_PER_SEED + pipeline.MOOD_TRACKS
+        # A journey-length playlist is cut to fit, so it has no fixed request size
+        requested = (None if case.get('journey_minutes') is not None
+                     else len(case['seeds']) * pipeline.SIMILAR_PER_SEED + pipeline.MOOD_TRACKS)
         case['scores'] = score_case(case, features, targets[case['mood']], requested)
+
+
+def journey_label(case):
+    minutes = case.get('journey_minutes')
+    return 'full length' if minutes is None else f"{minutes} min"
 
 
 def summarise(cases):
     def group(key):
         groups = {}
         for case in cases:
-            groups.setdefault(case[key], []).append(case['scores'])
+            name = journey_label(case) if key == 'journey_label' else case[key]
+            groups.setdefault(name, []).append(case['scores'])
         return {name: mean_scores(scores) for name, scores in groups.items()}
 
     return {
@@ -106,6 +116,7 @@ def summarise(cases):
         'overall_ci': overall_cis(cases),
         'by_mood': group('mood'),
         'by_seed_set': group('seed_set'),
+        'by_journey': group('journey_label'),
     }
 
 
@@ -154,7 +165,7 @@ def print_comparison(current_cases, baseline_run, baseline_name, testset_version
               f"{testset_version}); comparing unpaired.")
     rows, paired = compare_runs(baseline_run['cases'], current_cases, paired=paired)
     if not paired and baseline_run.get('testset_version') == testset_version:
-        print("WARNING: the two runs' cases don't match by (seed set, mood); comparing unpaired.")
+        print("WARNING: the two runs' cases don't match by (seed set, mood, journey); comparing unpaired.")
 
     how = "paired by case" if paired else "unpaired"
     print(f"Compared with {baseline_name} ({how}, bootstrap 95% CI of the change):")
@@ -277,7 +288,8 @@ def main():
     run = {
         'testset_version': testset['version'],
         'created': datetime.now().isoformat(timespec='seconds'),
-        'pipeline': {'similar_per_seed': pipeline.SIMILAR_PER_SEED, 'mood_tracks': pipeline.MOOD_TRACKS},
+        'pipeline': {'similar_per_seed': pipeline.SIMILAR_PER_SEED, 'mood_tracks': pipeline.MOOD_TRACKS,
+                 'mood_share': pipeline.MOOD_SHARE},
         'cache_dir': cache_dir,
         'summary': summary,
         'cases': cases
@@ -292,9 +304,11 @@ def main():
     run_path.write_text(json.dumps(run, indent=2), encoding='utf-8')
 
     if args.cases:
-        print_table('case', {f"{c['seed_set'][:10]}/{c['mood']}": c['scores'] for c in cases}, label_width=22)
+        print_table('case', {f"{c['seed_set'][:10]}/{c['mood']}/{journey_label(c)}": c['scores'] for c in cases},
+                    label_width=34)
     print_table('mood', summary['by_mood'])
     print_table('seed set', summary['by_seed_set'])
+    print_table('journey', summary['by_journey'])
     print_overall(summary, len(cases))
 
     if args.baseline:

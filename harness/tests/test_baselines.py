@@ -7,7 +7,7 @@ SEEDS = [{'uri': f"spotify:track:seed{i}", 'name': f"Seed {i}", 'artist': f"Seed
 POOL = [{'uri': f"spotify:track:t{i:03d}", 'name': f"Track {i}", 'artist': f"Artist {i % 40}",
          'popularity': i % 50} for i in range(200)]
 SEED_URIS = tuple(s['uri'] for s in SEEDS)
-COUNTS = {('happy', SEED_URIS): 23, ('sad', SEED_URIS): 7}
+COUNTS = {('happy', SEED_URIS, None): 23, ('sad', SEED_URIS, None): 7, ('happy', SEED_URIS, 20): 4}
 
 
 def as_case(seeds, tracks):
@@ -50,6 +50,19 @@ class PopularBaselineTest(unittest.TestCase):
         tracks = popular_baseline(POOL, COUNTS)('happy', SEEDS)
         self.assertEqual(tracks, popular_baseline(POOL, COUNTS)('happy', SEEDS))
         self.assertEqual([tracks[0], tracks[6], tracks[12]], SEEDS)
+
+
+
+class JourneyBaselineTest(unittest.TestCase):
+    def test_journey_cases_get_the_pipelines_count_for_that_journey(self):
+        for baseline in (random_baseline(POOL, COUNTS), popular_baseline(POOL, COUNTS)):
+            generated = generated_tracks(as_case(SEEDS, baseline('happy', SEEDS, 20)))
+            self.assertEqual(len(generated), 4)
+
+    def test_tracks_keep_their_length_but_not_popularity(self):
+        pool = [dict(t, duration_ms=180_000) for t in POOL]
+        for t in generated_tracks(as_case(SEEDS, random_baseline(pool, COUNTS)('sad', SEEDS))):
+            self.assertEqual(set(t), {'uri', 'name', 'artist', 'duration_ms'})
 
 
 if __name__ == '__main__':

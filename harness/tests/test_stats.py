@@ -33,6 +33,14 @@ class PairedDiffTest(unittest.TestCase):
         self.assertEqual(len(pairs), 2)
         self.assertEqual(sorted(round(d, 6) for d in paired_diffs(pairs, 'mood_fit')), [0.1, 0.1])
 
+    def test_journeys_pair_separately_and_old_runs_count_as_full_length(self):
+        before = [case('a', 'happy', mood_fit=0.5)]  # saved before journeys existed
+        before.append(dict(case('a', 'happy', mood_fit=0.2), journey_minutes=20))
+        after = [dict(case('a', 'happy', mood_fit=0.6), journey_minutes=None),
+                 dict(case('a', 'happy', mood_fit=0.4), journey_minutes=20)]
+        pairs = match_cases(before, after)
+        self.assertEqual(sorted(round(d, 6) for d in paired_diffs(pairs, 'mood_fit')), [0.1, 0.2])
+
     def test_mismatched_cases_return_none(self):
         before = [case('a', 'happy'), case('a', 'sad')]
         self.assertIsNone(match_cases(before, [case('a', 'happy'), case('a', 'calm')]))

@@ -1,6 +1,6 @@
 """Bootstrap confidence intervals for run scores and run comparisons.
 
-The test set is small (33 cases) and ReccoBeats samples randomly, so a mean
+The test set is small (132 cases) and ReccoBeats samples randomly, so a mean
 moves a little between runs even when the code doesn't change. Each mean gets
 a 95% interval from resampling the cases, and a comparison only calls a
 metric better or worse when the interval for the change excludes 0.
@@ -58,11 +58,12 @@ def unpaired_diff_ci(before, after, resamples=RESAMPLES, seed=RNG_SEED, level=LE
 
 
 def case_key(case):
-    return case['seed_set'], case['mood']
+    # Runs from before journeys existed have no journey_minutes: full length
+    return case['seed_set'], case['mood'], case.get('journey_minutes') or 0
 
 
 def match_cases(before_cases, after_cases):
-    """Pair up cases by (seed_set, mood): [(before, after), ...], or None if
+    """Pair up cases by (seed_set, mood, journey): [(before, after), ...], or None if
     the two runs don't hold exactly the same cases."""
     before = {case_key(c): c for c in before_cases}
     after = {case_key(c): c for c in after_cases}
@@ -98,7 +99,7 @@ def verdict(ci, better):
 def compare_runs(before_cases, after_cases, paired=True):
     """Change in each metric's mean from before to after, with its CI.
 
-    paired=True matches cases by (seed_set, mood) and bootstraps the mean of
+    paired=True matches cases by (seed_set, mood, journey) and bootstraps the mean of
     the per-case differences; it falls back to unpaired if the cases don't
     match. Returns (rows, paired_used) where rows is
     {metric: {before, after, change, ci, verdict}}.
