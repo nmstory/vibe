@@ -73,7 +73,7 @@ def generate_authorisation_token():
         print("Error:", response.status_code, response.text)
         return None
 
-# Calculates travel time (in minutes by default)
+# Driving time in minutes, with current traffic; None if there's no route
 def calculate_travel_time(origin, destination):
     try:
         directions = gmaps.directions(
@@ -82,14 +82,18 @@ def calculate_travel_time(origin, destination):
             mode="driving",
             departure_time="now"
         )
-        
-        if directions:
-            return directions[0]['legs'][0]['duration']['text']
-        else:
-            return jsonify({"success": False, "message": "Could not find directions."})
-    
     except Exception as e:
-        return jsonify({"success": False, "message": str(e)})
+        print(f"Error getting directions: {e}")
+        return None
+
+    if not directions:
+        print(f"No route found from {origin} to {destination}")
+        return None
+
+    leg = directions[0]['legs'][0]
+    # duration_in_traffic is only given when a departure time is set
+    seconds = leg.get('duration_in_traffic', leg['duration'])['value']
+    return max(1, round(seconds / 60))
 
 def get_user_top_tracks():
     access_token = session.get("spotify_access_token")
@@ -97,7 +101,7 @@ def get_user_top_tracks():
     url = "https://api.spotify.com/v1/me/top/tracks"
     params = {
         'time_range': 'short_term',
-        'limit': 25 # TODO: Base this value on car journey length
+        'limit': 25  # the pipeline uses only as many as the journey needs
     }
 
     response = requests.get(url, headers={
@@ -210,22 +214,19 @@ def callback():
 
 @app.route('/generate_playlist', methods=['POST'])
 def generate_playlist():
-    # todo: make use of travel time value
-    """
-    response = calculate_travel_time(request.form['origin'], request.form['destination'])
+    # No route: fall back to the full-length playlist
+    journey_minutes = calculate_travel_time(request.form['origin'], request.form['destination'])
 
-    if isinstance(response, dict) and response.get("success") == False:
-        return jsonify(response)
-    """
     generate_authorisation_token()
 
     top_tracks = get_user_top_tracks() or []
     seed_tracks = [
-        {'uri': track['uri'], 'name': track['name'], 'artist': track['artists'][0]['name']}
+        {'uri': track['uri'], 'name': track['name'], 'artist': track['artists'][0]['name'],
+         'duration_ms': track['duration_ms']}
         for track in top_tracks
     ]
 
-    tracks = generate_playlist_tracks(request.form['mood'], seed_tracks)
+    tracks = generate_playlist_tracks(request.form['mood'], seed_tracks, journey_minutes)
     track_list = [track['uri'] for track in tracks]
 
     # Create playlist

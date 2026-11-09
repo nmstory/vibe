@@ -54,7 +54,10 @@ def build_sample(run, testset, features, per_case, control_share=0.1, repeat_sha
     all_tracks = {t['uri']: t for case in run['cases'] for t in generated_tracks(case)}
 
     items = []
-    cases = [case for case in run['cases'] if targets[case['mood']]]  # only moods with a target
+    # Only moods with a target, and only full-length cases: journey cases are cut
+    # from the same responses, so including them would weight each case 4 times
+    cases = [case for case in run['cases']
+             if targets[case['mood']] and case.get('journey_minutes') is None]
 
     for case in cases:
         unique = list({t['uri']: t for t in generated_tracks(case)}.values())

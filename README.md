@@ -88,24 +88,24 @@ harness/testset.json ──► pipeline.generate_playlist_tracks(mood, seeds)   
                                                        harness/judge.py report ──► judge vs human agreement
 ```
 
-- **Pipeline:** `pipeline.py` holds playlist generation with no session or request dependency, so the harness calls it directly. It uses [ReccoBeats](https://reccobeats.com/docs/documentation/introduction) for similar tracks and audio features, and ranks mood recommendations by distance to a valence/energy target.
-- **Test set:** `harness/testset.json` has 11 moods × 3 seed sets (upbeat pop/rock, mellow acoustic, hip-hop) = 33 cases. One mood, "jubilant", is deliberately unknown to the pipeline, to exercise its fallback. Mood targets here are the scoring yardstick and are kept separate from the pipeline's own, so tuning the pipeline can't move the goalposts.
+- **Pipeline:** `pipeline.py` holds playlist generation with no session or request dependency, so the harness calls it directly. It uses [ReccoBeats](https://reccobeats.com/docs/documentation/introduction) for similar tracks and audio features, and ranks mood recommendations by distance to a valence/energy target. Given the journey's driving time (from Google Maps), it cuts the playlist to fit: mood tracks get a quarter of the journey, the seed blocks (each top track and its similar tracks, best first) fill the rest, more mood tracks top it up if the seeds run out, and it stops at the first track that takes it past arrival. Only the seeds the journey needs are looked up. Without a journey (no route found) it builds the full-length playlist.
+- **Test set:** `harness/testset.json` has 11 moods × 3 seed sets (upbeat pop/rock, mellow acoustic, hip-hop) × 4 journeys (full length, 20, 60 and 180 minutes) = 132 cases. Journey cases reuse the full-length cases' cached responses, so they add no API calls. One mood, "jubilant", is deliberately unknown to the pipeline, to exercise its fallback. Mood targets here are the scoring yardstick and are kept separate from the pipeline's own, so tuning the pipeline can't move the goalposts.
 - **Cache:** ReccoBeats returns different results on every call. `harness/cache.py` stores every response, including failures, in `harness/cache/`, so the first run fixes the sample and later runs replay it exactly. To draw a fresh sample, point `--cache-dir` at an empty folder, or delete the default one.
-- **Regression runs:** every run is saved and compared with the previous run on the same cache, i.e. the same API sample, so a difference comes from the code, not the sampling. Cases are paired by (seed set, mood), and the mean per-case change gets a bootstrap 95% CI. A metric is marked better, WORSE, or changed (for metrics with no better direction) only when that CI excludes 0; otherwise it's "no clear change". If the two runs' test set versions or cases differ, the comparison warns and falls back to an unpaired bootstrap.
+- **Regression runs:** every run is saved and compared with the previous run on the same cache, i.e. the same API sample, so a difference comes from the code, not the sampling. Cases are paired by (seed set, mood, journey), and the mean per-case change gets a bootstrap 95% CI. A metric is marked better, WORSE, or changed (for metrics with no better direction) only when that CI excludes 0; otherwise it's "no clear change". If the two runs' test set versions or cases differ, the comparison warns and falls back to an unpaired bootstrap.
 - **Uncertainty:** each overall mean is shown with a bootstrap 95% CI (2,000 resamples of the cases, fixed seed, so output is reproducible; `harness/stats.py`, standard library only). The CIs are also saved in the run's `summary.overall_ci`.
-- **Baselines:** `harness/baselines.py` holds two reference systems with the pipeline's own interface, `generate(mood, seed_tracks)`, so they're scored by exactly the same metrics. Both draw from a **candidate pool**: every track in the run's recommendation responses (the similar tracks plus the full 100-candidate mood pools), recovered from the cache.
-  - **random:** for each case, as many tracks as the pipeline generated, sampled uniformly from the pool without replacement (fixed seed).
+- **Baselines:** `harness/baselines.py` holds two reference systems with the pipeline's own interface, `generate(mood, seed_tracks, journey_minutes)`, so they're scored by exactly the same metrics. Both draw from a **candidate pool**: every track in the run's recommendation responses (the similar tracks plus the full 100-candidate mood pools), recovered from the cache.
+  - **random:** for each case (journey included), as many tracks as the pipeline generated, sampled uniformly from the pool without replacement (fixed seed).
   - **popular:** the pool's most popular tracks by ReccoBeats `popularity` (0–100), ignoring mood and seeds: "just play the hits". The pipeline drops this field; the baseline reads it from the cached responses, where every one of the 2,724 items carries it as an integer, with no track ever given two different values.
 
   Baseline results are saved under the run's `baselines` key, separate from `summary` and `cases`, so a baseline is never taken as the previous run.
 
 ## Metrics
 
-All scores are 0–1 and are computed over **generated tracks only**; the seed tracks the pipeline copies into the playlist are excluded.
+All scores are 0–1 and are computed over **generated tracks only**; the seed tracks the pipeline copies into the playlist are excluded. The exception is `dur_fit`, which measures the whole playlist, since every track plays on the journey.
 
 | Metric | Measures | Better |
 |---|---|---|
-| `fill` | tracks returned ÷ tracks requested (silent loss from the API) | higher |
+| `fill` | tracks returned ÷ tracks requested (silent loss from the API); full-length cases only, since a journey playlist is cut on purpose | higher |
 | `feat` | generated tracks with audio features, i.e. scorable for mood | higher |
 | `err` | failed API calls ÷ API calls | lower |
 | `dup` | 1 − unique tracks ÷ generated | lower |
@@ -113,6 +113,7 @@ All scores are 0–1 and are computed over **generated tracks only**; the seed t
 | `seed` | generated tracks that are a seed track | lower |
 | `seed_art` | generated tracks by a seed artist | (a product choice) |
 | `mood_fit` | 1 − mean valence/energy distance to the mood target ÷ √2 | higher |
+| `dur_fit` | shorter ÷ longer of playlist length and journey length, so half or double the journey both score 0.5; journey cases only | higher |
 
 ## Human ratings
 
